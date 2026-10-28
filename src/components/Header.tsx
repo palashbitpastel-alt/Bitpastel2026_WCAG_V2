@@ -354,39 +354,59 @@ const Header = ({ forceModalOpen = false, onModalClose }: HomePageProps) => {
               <Image src="/images/icons/bp_dark_logo.svg" alt="Bitpastel home" width={101} height={28} priority className="block mt-[2px]" />
             </Link>
 
-            <nav className="flex space-x-3 items-center">
-              <button
-                onClick={(e) => { lockActiveSection("services"); handleLinkClick(e, "services"); }}
-                className={`nav-dark inline-flex items-center justify-center h-[44px] px-[10px] rounded-[4px] ${activeSection === "services" ? "is-active" : ""} `}
-                style={{ fontFamily: "Roboto", fontSize: "18px", fontWeight: 400, lineHeight: "100%" }}
-              >
-                Services
-              </button>
-              <button
-                onClick={() => { lockActiveSection("stories"); scrollToNews(); }}
-                className={`nav-dark inline-flex items-center justify-center h-[44px] px-[10px] rounded-[4px] ${activeSection === "stories" ? "is-active" : ""} `}
-                style={{ fontFamily: "Roboto", fontSize: "18px", fontWeight: 400, lineHeight: "100%" }}
-              >
-                Stories
-              </button>
-              <Link
-                prefetch={true}
-                href="#" /* original href: "/culture" */
-                onClick={handleCultureClick}
-                className={`nav-dark inline-flex items-center justify-center h-[44px] px-[10px] rounded-[4px] ${pathname === "/culture" ? "is-active" : ""} `}
-                style={{ fontFamily: "Roboto", fontSize: "18px", fontWeight: 400, lineHeight: "100%" }}
-              >
-                Culture
-              </Link>
-              <Link
-                prefetch={true}
-                className={`new-btn-design flex items-center justify-center transition-all duration-200 `}
-                href="#"
-                scroll={false}
-                onClick={(e) => { e.preventDefault(); handleChatClick(); }}
-              >
-                Chat with Us
-              </Link>
+            {/* WCAG 1.3.1: links in a list (role="list" keeps list semantics in Safari
+                with list-style:none), and the scroll-spy underline is mirrored by
+                aria-current so the current section is not conveyed visually only.
+                WCAG 1.4.12: min-h instead of a fixed height so the pills can grow
+                under text-spacing overrides. */}
+            <nav aria-label="Main">
+              <ul role="list" className="flex space-x-3 items-center">
+                <li>
+                  <a
+                    href="#services"
+                    aria-current={activeSection === "services" ? "true" : undefined}
+                    onClick={(e) => { lockActiveSection("services"); handleLinkClick(e, "services"); }}
+                    className={`nav-dark inline-flex items-center justify-center min-h-[44px] py-[10px] px-[10px] rounded-[4px] ${activeSection === "services" ? "is-active" : ""} `}
+                    style={{ fontFamily: "Roboto", fontSize: "18px", fontWeight: 400, lineHeight: "100%" }}
+                  >
+                    Services
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#stories"
+                    aria-current={activeSection === "stories" ? "true" : undefined}
+                    onClick={(e) => { e.preventDefault(); lockActiveSection("stories"); scrollToNews(); }}
+                    className={`nav-dark inline-flex items-center justify-center min-h-[44px] py-[10px] px-[10px] rounded-[4px] ${activeSection === "stories" ? "is-active" : ""} `}
+                    style={{ fontFamily: "Roboto", fontSize: "18px", fontWeight: 400, lineHeight: "100%" }}
+                  >
+                    Stories
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    prefetch={true}
+                    href="#" /* original href: "/culture" */
+                    aria-current={pathname === "/culture" ? "page" : undefined}
+                    onClick={handleCultureClick}
+                    className={`nav-dark inline-flex items-center justify-center min-h-[44px] py-[10px] px-[10px] rounded-[4px] ${pathname === "/culture" ? "is-active" : ""} `}
+                    style={{ fontFamily: "Roboto", fontSize: "18px", fontWeight: 400, lineHeight: "100%" }}
+                  >
+                    Culture
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    prefetch={true}
+                    className={`new-btn-design flex items-center justify-center transition-all duration-200 `}
+                    href="#"
+                    scroll={false}
+                    onClick={(e) => { e.preventDefault(); handleChatClick(); }}
+                  >
+                    Chat with Us
+                  </Link>
+                </li>
+              </ul>
             </nav>
           </div>
 

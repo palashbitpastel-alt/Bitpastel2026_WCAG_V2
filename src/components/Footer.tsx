@@ -339,9 +339,11 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                     className="h-[77px] mb-[-15px] w-auto block"
                   />
                 </Link>
-                <p className="lg:hidden leading-[1] block lg:mt-0 mt-0 h-[32px] lg:pb-6 type-footer text-[13px]">
-                  INFORMATION
-                </p>
+                {/* WCAG 1.3.1: footer group titles are real headings; uppercase is
+                    applied in CSS so screen readers don't read the words as acronyms */}
+                <h2 className="lg:hidden leading-[1] block lg:mt-0 mt-0 h-[32px] lg:pb-6 type-footer uppercase text-[13px]">
+                  Information
+                </h2>
                 <div className="text-[16px] lg:mb-0 mb-[1rem] leading-relaxed block">
                   <a
                     href="#" /* original href: "https://www.google.com/maps/place/Technopolis+Building/@22.5797323,88.4351652,17z/data=!4m14!1m7!3m6!1s0x3a0275a701908349:0x8d6c12852bc079bc!2sTechnopolis+Building!8m2!3d22.5797323!4d88.4377401!16s%2Fg%2F11hblq2494!3m5!1s0x3a0275a701908349:0x8d6c12852bc079bc!8m2!3d22.5797323!4d88.4377401!16s%2Fg%2F11hblq2494?entry=ttu" */
@@ -356,33 +358,41 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                     </span>
                   </a>
                 </div>
-                <div className="lg:hidden block space-y-2 text-[13px]">
-                  <a className="block text-[16px]" href="#" /* original href: "tel:+1 (872) 444 6679" */>
-                    <span>US: +1 (872) 444 6679</span>
-                  </a>
+                <ul role="list" className="lg:hidden block space-y-2 text-[13px]">
+                  <li>
+                    <a className="block text-[16px]" href="#" /* original href: "tel:+1 (872) 444 6679" */>
+                      <span>US: +1 (872) 444 6679</span>
+                    </a>
+                  </li>
                   {/* <a
                     className="block text-[13px]"
                     href="https://api.whatsapp.com/send/?phone=442081446579&text=Hey...+I+would+like+to+have+a+quick+chat+with+you.&type=phone_number&app_absent=0"
                     href="https://api.whatsapp.com/send/?phone=447469539191&text=Hey...+I+would+like+to+have+a+quick+chat+with+you.&type=phone_number&app_absent=0"
                   >
                      </a> */}
-                  <a className="block text-[16px]" href="#" /* original href: "tel:+44 7469 539191" */>
-                    {/* <span>UK: +44 2081 446579</span> */}
-                    <span>UK: +44 7469 539191</span>
-                  </a>
-                  <a className="block text-[16px]" href="#" /* original href: "tel:+91 9830 566 248" */>
-                    <span>IN: +91 9830 566 248</span>
-                  </a>
-                  <a className="mt-4 block text-[16px]" href="#" /* original href: "mailto:connect@bitpastel.com" */>
-                    <span>connect@bitpastel.com</span>
-                  </a>
-                </div>
+                  <li>
+                    <a className="block text-[16px]" href="#" /* original href: "tel:+44 7469 539191" */>
+                      {/* <span>UK: +44 2081 446579</span> */}
+                      <span>UK: +44 7469 539191</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a className="block text-[16px]" href="#" /* original href: "tel:+91 9830 566 248" */>
+                      <span>IN: +91 9830 566 248</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a className="mt-4 block text-[16px]" href="#" /* original href: "mailto:connect@bitpastel.com" */>
+                      <span>connect@bitpastel.com</span>
+                    </a>
+                  </li>
+                </ul>
                 <div className="hidden lg:block">
-                  <p className="mt-8 text-[16px] lg:pb-8 pb-2 type-footer leading-[1]">
-                    CONNECT WITH US
-                  </p>
-                  <div className="flex lg:space-x-10 space-x-6 pt-2 lg:pt-0 social-media-wrapper">
-                    <div className="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-primary-teal transition-background-color cursor-pointer">
+                  <h2 className="mt-8 text-[16px] lg:pb-8 pb-2 type-footer uppercase leading-[1]">
+                    Connect with us
+                  </h2>
+                  <ul role="list" className="flex lg:space-x-10 space-x-6 pt-2 lg:pt-0 social-media-wrapper">
+                    <li className="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-primary-teal transition-background-color cursor-pointer">
                       <a
                         href="#" /* original href: "https://www.facebook.com/bitpastel" */
                         /* target="_blank" */
@@ -392,8 +402,8 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       >
                         <SocialIcon name="facebook" />
                       </a>
-                    </div>
-                    <div className="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-primary-teal transition-background-color cursor-pointer">
+                    </li>
+                    <li className="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-primary-teal transition-background-color cursor-pointer">
                       <a
                         href="#" /* original href: "https://www.instagram.com/bitpastel.ai/" */
                         /* target="_blank" */
@@ -403,8 +413,8 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       >
                         <SocialIcon name="instagram" />
                       </a>
-                    </div>
-                    <div className="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-primary-teal transition-background-color cursor-pointer">
+                    </li>
+                    <li className="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-primary-teal transition-background-color cursor-pointer">
                       <a
                         href="#" /* original href: "https://www.linkedin.com/company/bitpastel" */
                         /* target="_blank" */
@@ -414,19 +424,19 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       >
                         <SocialIcon name="linkedin" />
                       </a>
-                    </div>
-                  </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <div className="lg:max-w-[241px] mx-auto w-full">
-                <p className="lg:h-[50px] h-[32px] type-footer leading-[1] text-[18px]">
-                  QUICK LINKS
-                </p>
+              <nav aria-labelledby="footer-quick-links" className="lg:max-w-[241px] mx-auto w-full">
+                <h2 id="footer-quick-links" className="lg:h-[50px] h-[32px] type-footer uppercase leading-[1] text-[18px]">
+                  Quick links
+                </h2>
 
                 <div className="lg:grid grid-cols-2 hidden">
                   <div className="">
-                    <div className="space-y-4 text-[16px]">
-                      <div className="block text-[16px]">
+                    <ul role="list" className="space-y-4 text-[16px]">
+                      <li className="block text-[16px]">
                         <Link
                           prefetch={true}
                           href="/"
@@ -446,15 +456,18 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                         >
                           Home
                         </Link>
-                      </div>
-                      <div className="block text-[16px]">
-                        <button
+                      </li>
+                      {/* WCAG 2.4.3: in-page links (not buttons) that move focus to the
+                          target section, so the next Tab continues from there */}
+                      <li className="block text-[16px]">
+                        <a
+                          href="#culture"
                           onClick={(e) => handleSectionClick(e, 'culture')}
                           className="hover:text-gray-300 text-[16px] transition-colors"
                         >
                           About
-                        </button>
-                      </div>
+                        </a>
+                      </li>
                       {/* <div className="block text-[13px]">
                         <Link
                           href="/portfolio"
@@ -463,83 +476,92 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                           Portfolio
                         </Link>
                       </div> */}
-                      <div className="block text-[16px]">
-                        <button
+                      <li className="block text-[16px]">
+                        <a
+                          href="#services"
                           onClick={(e) => handleSectionClick(e, 'services')}
                           className="hover:text-gray-300 text-[16px] transition-colors"
                         >
                           Services
-                        </button>
-                      </div>
-                      <div className="block text-[16px]">
-                        <button
-                          onClick={scrollToNews}
+                        </a>
+                      </li>
+                      <li className="block text-[16px]">
+                        <a
+                          href="#stories"
+                          onClick={(e) => { e.preventDefault(); scrollToNews(); }}
                           className="hover:text-gray-300 text-[16px] transition-colors"
                         >
                           Stories
-                        </button>
-                      </div>
-                    </div>
+                        </a>
+                      </li>
+                    </ul>
                   </div>
                   <div className="lg:ml-auto">
-                    <div className="space-y-4 text-[16px]">
-                      <Link
-                        prefetch={true}
-                        href="#" /* original href: "/culture" */
-                        onClick={(e) => {
-                          if (pathname === '/culture') {
-                            e.preventDefault();
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                          }
-                          setCurrentTab('culture');
-                        }}
-                        className="block hover:text-gray-300 transition-colors"
-                      >
-                        Culture
-                      </Link>
-                      <div className="hover:text-gray-300 text-[16px] transition-colors">
-                        <button
+                    <ul role="list" className="space-y-4 text-[16px]">
+                      <li>
+                        <Link
+                          prefetch={true}
+                          href="#" /* original href: "/culture" */
+                          onClick={(e) => {
+                            if (pathname === '/culture') {
+                              e.preventDefault();
+                              window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }
+                            setCurrentTab('culture');
+                          }}
+                          className="block hover:text-gray-300 transition-colors"
+                        >
+                          Culture
+                        </Link>
+                      </li>
+                      <li className="hover:text-gray-300 text-[16px] transition-colors">
+                        <a
+                          href="#client"
                           onClick={(e) => handleSectionClick(e, 'client')}
-                          className="block hover:text-gray-300 text-[16px] mx-auto transition-colors cursor-pointer"
+                          className="block hover:text-gray-300 text-[16px] transition-colors cursor-pointer"
                         >
                           Clientele
-                        </button>
-                      </div>
-                      <Link
-                        prefetch={true}
-                        href="#" /* original href: "/careers" */
-                        onClick={(e) => {
-                          if (pathname === '/careers') {
-                            e.preventDefault();
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                          }
-                          setCurrentTab('careers');
-                        }}
-                        // onClick={(e) => handleNavigation("/careers", e)}
+                        </a>
+                      </li>
+                      <li>
+                        <Link
+                          prefetch={true}
+                          href="#" /* original href: "/careers" */
+                          onClick={(e) => {
+                            if (pathname === '/careers') {
+                              e.preventDefault();
+                              window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }
+                            setCurrentTab('careers');
+                          }}
+                          // onClick={(e) => handleNavigation("/careers", e)}
 
-                        className="block hover:text-gray-300 transition-colors"
-                      >
-                        Careers
-                      </Link>
-                      <Link
-                        prefetch={true}
-                        href="#" /* original href: "/partners" */
-                        onClick={(e) => {
-                          if (pathname === '/partners') {
-                            e.preventDefault();
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                          }
-                        }}
-                        className="block hover:text-gray-300 transition-colors cursor-pointer"
-                      >
-                        Partners
-                      </Link>
-                    </div>
+                          className="block hover:text-gray-300 transition-colors"
+                        >
+                          Careers
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          prefetch={true}
+                          href="#" /* original href: "/partners" */
+                          onClick={(e) => {
+                            if (pathname === '/partners') {
+                              e.preventDefault();
+                              window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }
+                          }}
+                          className="block hover:text-gray-300 transition-colors cursor-pointer"
+                        >
+                          Partners
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
                 </div>
                 <div className="lg:hidden mx-auto max-w-[450px]">
-                  <div className="grid grid-cols-4 gap-[5px] items-center">
-                    <div className="block text-[13px]">
+                  <ul role="list" className="grid grid-cols-4 gap-[5px] items-center">
+                    <li className="block text-[13px]">
                       <Link
                         prefetch={true}
                         href="/"
@@ -559,15 +581,16 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       >
                         Home
                       </Link>
-                    </div>
-                    <div className="block text-[13px]">
-                      <button
+                    </li>
+                    <li className="block text-[13px]">
+                      <a
+                        href="#culture"
                         onClick={(e) => handleSectionClick(e, 'culture')}
                         className="hover:text-gray-300 text-[13px] ml-[-12px] transition-colors"
                       >
                         About
-                      </button>
-                    </div>
+                      </a>
+                    </li>
                     {/* <div className="block text-[13px]">
                         <Link
                           href="/portfolio"
@@ -576,23 +599,25 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                           Portfolio
                         </Link>
                       </div> */}
-                    <div className="block text-[13px]">
-                      <button
+                    <li className="block text-[13px]">
+                      <a
+                        href="#services"
                         onClick={(e) => handleSectionClick(e, 'services')}
                         className="hover:text-gray-300 text-[13px] transition-colors"
                       >
                         Services
-                      </button>
-                    </div>
-                    <div className="block text-[13px]">
-                      <button
+                      </a>
+                    </li>
+                    <li className="block text-[13px]">
+                      <a
+                        href="#stories"
                         onClick={(e) => handleSectionClick(e, 'stories')}
                         className="hover:text-gray-300 ml-[-10px] text-[13px] transition-colors"
                       >
                         Stories
-                      </button>
-                    </div>
-                    <div className="block text-[13px]">
+                      </a>
+                    </li>
+                    <li className="block text-[13px]">
                       <Link
                         prefetch={true}
                         href="#" /* original href: "/culture" */
@@ -607,16 +632,17 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       >
                         Culture
                       </Link>
-                    </div>
-                    <div className="block text-[13px]">
-                      <button
+                    </li>
+                    <li className="block text-[13px]">
+                      <a
+                        href="#client"
                         onClick={(e) => handleSectionClick(e, 'client')}
-                        className="block hover:text-gray-300 text-[13px] mx-auto transition-colors cursor-pointer"
+                        className="block hover:text-gray-300 text-[13px] mx-auto w-fit transition-colors cursor-pointer"
                       >
                         Clientele
-                      </button>
-                    </div>
-                    <div className="block text-[13px]">
+                      </a>
+                    </li>
+                    <li className="block text-[13px]">
                       <Link
                         prefetch={true}
                         href="#" /* original href: "/careers" */
@@ -633,8 +659,8 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       >
                         Careers
                       </Link>
-                    </div>
-                    <div className="block text-[13px]">
+                    </li>
+                    <li className="block text-[13px]">
                       <Link
                         prefetch={true}
                         href="#" /* original href: "/partners" */
@@ -648,16 +674,16 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       >
                         Partners
                       </Link>
-                    </div>
-                  </div>
+                    </li>
+                  </ul>
                 </div>
-              </div>
+              </nav>
               <div className="text-[13px] lg:space-y-0 space-y-4 lg:ml-auto col-start-1 lg:col-span-1 lg:col-start-auto">
-                <p className="lg:hidden block mt-0 text-[13px] lg:pb-6 pb-0 type-footer leading-[1]">
-                  CONNECT WITH US
-                </p>
-                <div className="lg:hidden flex gap-[30px] pt-[5px] social-media-wrapper">
-                  <div className="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-primary-teal transition-background-color cursor-pointer">
+                <h2 className="lg:hidden block mt-0 text-[13px] lg:pb-6 pb-0 type-footer uppercase leading-[1]">
+                  Connect with us
+                </h2>
+                <ul role="list" className="lg:hidden flex gap-[30px] pt-[5px] social-media-wrapper">
+                  <li className="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-primary-teal transition-background-color cursor-pointer">
                     <a
                       href="#" /* original href: "https://www.facebook.com/bitpastel" */
                       /* target="_blank" */
@@ -667,8 +693,8 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                     >
                       <SocialIcon name="facebook" />
                     </a>
-                  </div>
-                  <div className="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-primary-teal transition-background-color cursor-pointer">
+                  </li>
+                  <li className="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-primary-teal transition-background-color cursor-pointer">
                     <a
                       href="#" /* original href: "https://www.instagram.com/bitpastel.ai/" */
                       /* target="_blank" */
@@ -678,8 +704,8 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                     >
                       <SocialIcon name="instagram" />
                     </a>
-                  </div>
-                  <div className="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-primary-teal transition-background-color cursor-pointer">
+                  </li>
+                  <li className="w-8 h-8 border border-white rounded-full flex items-center justify-center hover:bg-primary-teal transition-background-color cursor-pointer">
                     <a
                       href="#" /* original href: "https://www.linkedin.com/company/bitpastel" */
                       /* target="_blank" */
@@ -689,16 +715,18 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                     >
                       <SocialIcon name="linkedin" />
                     </a>
-                  </div>
-                </div>
+                  </li>
+                </ul>
                 <div>
-                  <p className="hidden lg:block lg:h-[50px] h-[32px] type-footer leading-[1] text-[18px]">
-                    INFORMATION
-                  </p>
-                  <div className="lg:block hidden mt-0 space-y-4">
-                    <a className="block text-[16px]" href="#" /* original href: "tel:+1 (872) 444 6679" */ /* target="_blank" */>
-                      <span>US: +1 (872) 444 6679</span>
-                    </a>
+                  <h2 className="hidden lg:block lg:h-[50px] h-[32px] type-footer uppercase leading-[1] text-[18px]">
+                    Information
+                  </h2>
+                  <ul role="list" className="lg:block hidden mt-0 space-y-4">
+                    <li>
+                      <a className="block text-[16px]" href="#" /* original href: "tel:+1 (872) 444 6679" */ /* target="_blank" */>
+                        <span>US: +1 (872) 444 6679</span>
+                      </a>
+                    </li>
                     {/* <a className="block text-[13px]" href="tel:+44 2081 446579"> */}
                     {/* <a
                       className="block text-[13px]"
@@ -709,27 +737,33 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       <span>UK: +44 2081 446579</span>
                       <span>UK: +44 7469 539191</span>
                     </a> */}
-                    <a className="block text-[16px]" href="#" /* original href: "tel:+44 7469 539191" */ /* target="_blank" */>
-                      <span>UK: +44 7469 539191</span>
-                    </a>
-                    <a className="block text-[16px]" href="#" /* original href: "tel:+91 9830 566 248" */ /* target="_blank" */>
-                      <span>IN: +91 9830 566 248</span>
-                    </a>
-                    <a
-                      className="mt-4 block text-[16px]"
-                      href="#" /* original href: "mailto:connect@bitpastel.com" */
-                      /* target="_blank" */
-                    >
-                      <span>connect@bitpastel.com</span>
-                    </a>
-                  </div>
+                    <li>
+                      <a className="block text-[16px]" href="#" /* original href: "tel:+44 7469 539191" */ /* target="_blank" */>
+                        <span>UK: +44 7469 539191</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a className="block text-[16px]" href="#" /* original href: "tel:+91 9830 566 248" */ /* target="_blank" */>
+                        <span>IN: +91 9830 566 248</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="mt-4 block text-[16px]"
+                        href="#" /* original href: "mailto:connect@bitpastel.com" */
+                        /* target="_blank" */
+                      >
+                        <span>connect@bitpastel.com</span>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
                 <p className="lg:hidden block text-center text-white text-[12px] font-roboto font-[300] lg:max-w-[100%] max-w-[100%] mx-auto">
                   Copyright © Bitpastel Solution Private Limited {new Date().getFullYear()}
                   <br />
                   All Rights Reserved
                   <span className="px-2">|</span>
-                  <Link prefetch={true} href="#" /* original href: "/privacy-policy" */>
+                  <Link prefetch={true} href="#" /* original href: "/privacy-policy" */ className="underline underline-offset-[3px] hover:decoration-2">
                     Privacy Policy
                   </Link>
                 </p>
@@ -741,7 +775,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
             >
               <p className="text-center text-[#FCFFF9] lg:text-[14px] text-[12px] font-roboto font-[400] lg:max-w-[100%] max-w-[80%] mx-auto">
                 Copyright © Bitpastel Solution Private Limited {new Date().getFullYear()} | All Rights Reserved |{' '}
-                <Link prefetch={true} href="#" /* original href: "/privacy-policy" */>
+                <Link prefetch={true} href="#" /* original href: "/privacy-policy" */ className="underline underline-offset-[3px] hover:decoration-2">
                   Privacy Policy
                 </Link>
               </p>

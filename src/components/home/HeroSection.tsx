@@ -81,17 +81,17 @@ const HeroSection: React.FC<HerSectionProps> = ({ openModal }) => {
               <span className="block"> for your business</span>
             </h1>
 
-            <div className="md:text-primary-white text-title md:text-left lg:space-y-[15px] text-center">
+            {/* WCAG 1.3.1: a visual checklist is exposed as a list */}
+            <ul role="list" className="md:text-primary-white text-title md:text-left lg:space-y-[15px] text-center">
               {[
                 'Shopify & eCommerce Solutions',
                 'Custom SaaS Product Development',
                 'AI Transformation & Automation Services',
               ].map((text, idx) => (
-                <div key={idx} className="flex md:gap-4 gap-2 mb-[5px] lg:mb-0 items-center">
+                <li key={idx} className="flex md:gap-4 gap-2 mb-[5px] lg:mb-0 items-center">
                   <Image
                     src={CheckIcon}
                     alt=""
-                    aria-hidden="true"
                     width={24}
                     height={24}
                     className="w-auto md:block hidden"
@@ -99,15 +99,14 @@ const HeroSection: React.FC<HerSectionProps> = ({ openModal }) => {
                   <Image
                     src={CheckIconMobile}
                     alt=""
-                    aria-hidden="true"
                     width={24}
                     height={24}
                     className="md:hidden block w-[20px]"
                   />
                   <p className="  md:text-[20px] lg:!text-[20px] paragraph font-[400] font-roboto">{text}</p>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
             <div className='button-area-main'>
               <button
                 // prefetch={true}

@@ -100,8 +100,12 @@ export default function RootLayout({
           ></iframe>
         </noscript>
 
+        {/* WCAG 2.4.1: first focusable element, lets keyboard users skip the header */}
+        <a href="#main" className="skip-link">
+          Skip to main content
+        </a>
         <HeaderOptimized />
-        <main className="flex-grow md:pb-[88px] lg:pb-0">
+        <main id="main" tabIndex={-1} className="flex-grow md:pb-[88px] lg:pb-0">
           {children}
         </main>
         <FooterOptimized />

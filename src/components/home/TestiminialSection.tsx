@@ -281,6 +281,10 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
   const [focusedCard, setFocusedCard] = useState<string | null>(null);
   const [closingCards, setClosingCards] = useState<Set<string>>(new Set());
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  // WCAG 4.1.3: text for the always-present polite live region below
+  const [statusMessage, setStatusMessage] = useState('');
+  // WCAG 2.4.3: heading of the first newly revealed story, focused after "Explore More Stories"
+  const firstNewStoryRef = useRef<HTMLHeadingElement | null>(null);
 
   const currentTestimonials = isMobile ? mobileTestimonials : testimonials;
   const initialTestimonials = currentTestimonials.slice(0, initialCount);
@@ -337,6 +341,28 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
     setFocusedCard(id);
   };
 
+  // WCAG 1.4.13: Esc dismisses a story expanded by hover or focus
+  const handleKeyDown = (e: React.KeyboardEvent, id: string) => {
+    if (e.key !== 'Escape' || (hoveredCard !== id && focusedCard !== id)) return;
+    setClosingCards((prev) => {
+      const next = new Set(prev);
+      next.add(id);
+      return next;
+    });
+    setHoveredCard(null);
+    setFocusedCard(null);
+  };
+
+  const handleShowMore = () => {
+    setShowMore(true);
+    setStatusMessage(`${extraTestimonials.length} more stories loaded`);
+  };
+
+  // The button unmounts on click, so move focus to the first new story instead of letting it drop to <body>
+  useEffect(() => {
+    if (showMore) firstNewStoryRef.current?.focus();
+  }, [showMore]);
+
   const handleBlur = (id: string) => {
     if (id !== hoveredCard) {
       setClosingCards((prev) => {
@@ -356,7 +382,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
     };
   }, []);
 
-  const renderTestimonialCard = (testimonial: Testimonial) => (
+  const renderTestimonialCard = (testimonial: Testimonial, isFirstNew = false) => (
     <div
       key={testimonial.id}
       className={`${testimonial.bgColor} break-inside-avoid overflow-hidden md:rounded-[20px] ${
@@ -373,6 +399,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         'aria-label': `Story from ${testimonial.name}`,
         onFocus: () => handleFocus(testimonial.id),
         onBlur: () => handleBlur(testimonial.id),
+        onKeyDown: (e: React.KeyboardEvent) => handleKeyDown(e, testimonial.id),
       })}
     >
       <div className="flex-grow">
@@ -394,15 +421,20 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         </div>
       </div>
       <div className={`flex items-center space-x-4 mt-4 pt-4 border-t border-transparent md:min-h-[80px] ${testimonial.bgColor}`}>
+        {/* Decorative: the name is printed right next to the photo (WCAG 1.1.1) */}
         <Image
           src={testimonial.image}
-          alt={`Photo of ${testimonial.name}`}
+          alt=""
           width={56}
           height={56}
           className="rounded-full object-cover md:h-[56px] md:w-[56px] w-[40px] h-[40px]"
         />
         <div>
-          <h3 className={`font-[600] ${isMobile ? 'text-[12px]' : 'text-[20px]'} font-source`}>
+          <h3
+            ref={isFirstNew ? firstNewStoryRef : undefined}
+            tabIndex={isFirstNew ? -1 : undefined}
+            className={`font-[600] ${isMobile ? 'text-[12px]' : 'text-[20px]'} font-source`}
+          >
             {testimonial.name}
           </h3>
           <p className={`font-roboto italic ${isMobile ? 'text-[12px]' : 'text-[16px]'}`}>
@@ -420,20 +452,26 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
           Stories
         </h2>
 
+        {/* Always rendered so screen readers pick up the change when stories load */}
+        <p role="status" className="sr-only">
+          {statusMessage}
+        </p>
+
         <div className={`columns-1 md:columns-2 desktop-testimonials gap-8 md:space-y-8 space-y-6 mx-auto w-full text-title ${showMore ? 'mb-4' : 'mb-0'}`}>
-          {initialTestimonials.map(renderTestimonialCard)}
+          {initialTestimonials.map((t) => renderTestimonialCard(t))}
         </div>
 
         {showMore && (
           <div className={`columns-1 md:columns-2 gap-8 md:space-y-8 space-y-6 mt-6 mx-auto w-full text-title `}>
-            {extraTestimonials.map(renderTestimonialCard)}
+            {extraTestimonials.map((t, i) => renderTestimonialCard(t, i === 0))}
           </div>
         )}
 
         {extraTestimonials.length > 0 && !showMore && (
           <div className="flex justify-center md:mt-8 mt-7 space-x-4">
             <button
-              onClick={() => setShowMore(true)}
+              type="button"
+              onClick={handleShowMore}
               className="new-btn-design-full font-roboto min-w-[261px] min-h-[50px]"
             >
               <span>Explore More Stories</span>

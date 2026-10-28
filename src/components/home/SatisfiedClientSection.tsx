@@ -11,32 +11,28 @@ const SatisfiedClientSection = () => {
       label: 'Clients',
       icon: '/images/stat-clients.svg',
       color: 'text-accent-blue',
-      borderColor: '#0D9EBF4D',
-      iconAlt: 'Icon representing the total number of clients'
+      borderColor: '#0D9EBF4D'
     },
     {
       value: '1400+',
       label: 'Projects',
       icon: '/images/stat-projects.svg',
       color: 'text-accent-yellow',
-      borderColor: '#B48D0E4D',
-      iconAlt: 'Icon representing completed projects'
+      borderColor: '#B48D0E4D'
     },
     {
       value: '50M',
       label: 'Lines of Code',
       icon: '/images/stat-lines-of-code.svg',
       color: 'text-accent-coral',
-      borderColor: '#F245534D',
-      iconAlt: 'Icon representing lines of code developed'
+      borderColor: '#F245534D'
     },
     {
       value: '35',
       label: 'Countries',
       icon: '/images/stat-countries.svg',
       color: 'text-accent-green',
-      borderColor: '#29996A4D',
-      iconAlt: 'Icon representing countries served'
+      borderColor: '#29996A4D'
     },
   ];
   return (
@@ -56,8 +52,7 @@ const SatisfiedClientSection = () => {
               <div key={index} className="text-center content-center md:min-h-[153px] h-full border md:rounded-[20px] rounded-[20px] md:p-[20px] p-[10px] shadow-[1px_2px_18px_0px_#00000014]" style={{ borderColor: stat.borderColor }}>
                 <Image
                   src={stat.icon}
-                  alt={stat.iconAlt}
-                  aria-hidden="true"
+                  alt=""
                   width={62}
                   height={62}
                   className="mx-auto md:mb-6 mb-2 md:h-auto md:max-w-[60px] md:min-w-[40px] h-[30px] md:w-auto w-[30px]"

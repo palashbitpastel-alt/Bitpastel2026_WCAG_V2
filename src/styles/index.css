@@ -1133,3 +1133,40 @@ margin-top:0 !important;
     margin-top: 12px !important;
   }
 }
+
+/* WCAG 2.4.1 Bypass Blocks: skip link, off-screen until focused */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #222b32;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* <main> and section headings only receive programmatic focus (skip link,
+   in-page nav); they are not controls, so no focus ring */
+main:focus-visible,
+h2[tabindex='-1']:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* WCAG 2.4.11 Focus Not Obscured: keep anchor and focus scrolling clear of the
+   fixed header (76px) and, below lg, the fixed bottom nav */
+html {
+  scroll-padding-top: 96px;
+}
+
+@media (max-width: 1023px) {
+  html {
+    scroll-padding-bottom: 96px;
+  }
+}

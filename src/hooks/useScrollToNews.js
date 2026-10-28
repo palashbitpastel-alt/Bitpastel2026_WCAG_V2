@@ -3,6 +3,7 @@
 
 import { useCallback } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
+import { focusSectionHeading } from '@/utils/navigationUtils';
 // GSAP removed for performance optimization - using native scroll fallback
 
 export default function useScrollToNews() {
@@ -82,6 +83,7 @@ export default function useScrollToNews() {
     if (pathname === '/') {
       try { console.debug('[useScrollToNews] on home page → in-page scroll'); } catch {}
       scrollToElement('stories');
+      focusSectionHeading('stories');
       if (typeof window !== 'undefined') {
         try {
           window.history.replaceState(null, '', '/#stories');

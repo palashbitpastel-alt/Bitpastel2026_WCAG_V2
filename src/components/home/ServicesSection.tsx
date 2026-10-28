@@ -25,7 +25,6 @@ interface services {
   bgColor: string;
   bgcolorCollapsed: string;
   mobileTextColor: string;
-  iconAlt?: string;
 
 }
 
@@ -73,7 +72,6 @@ const ServicesSection = () => {
       bgColor:'#D6F5E4',
       bgcolorCollapsed: '#D6F5E4',
       mobileTextColor: ' text-[#7A5C00]',
-      iconAlt: 'Atom with sparkle icon representing AI and smart technology',
     },
     {
       id: 'shopify',
@@ -83,7 +81,6 @@ const ServicesSection = () => {
       bgColor: '#FCF4D7',
       bgcolorCollapsed: '#FCF4D7',
       mobileTextColor: 'text-[#00704E]',
-      iconAlt: 'Shopify shopping bag icon',
     },
     {
       id: 'web',
@@ -93,7 +90,6 @@ const ServicesSection = () => {
       bgColor: '#FDE3E5',
       bgcolorCollapsed: '#fde3e5',
       mobileTextColor: 'text-[#B3202D]',
-      iconAlt: 'Laptop icon representing web development',
     },
     {
       id: 'design',
@@ -103,7 +99,6 @@ const ServicesSection = () => {
       bgColor: '#FCF4D7',
       bgcolorCollapsed: '#fcf4d7',
       mobileTextColor: 'text-[#7A5C00]',
-      iconAlt: 'Pen nib icon representing design and creative work',
     },
     {
       id: 'ecommerce',
@@ -113,7 +108,6 @@ const ServicesSection = () => {
       bgColor: '#FDE3E5',
       bgcolorCollapsed: '#fde3e5',
       mobileTextColor: 'text-[#B3202D]',
-      iconAlt: 'Shopping cart with add icon representing e-commerce',
     },
     {
       id: 'saas',
@@ -123,7 +117,6 @@ const ServicesSection = () => {
       bgColor: '#D6F5E4',
       bgcolorCollapsed: '#d6F5E4',
       mobileTextColor: 'text-[#00704E]',
-      iconAlt: 'Cloud network icon representing SaaS platforms',
     },
   ];
 
@@ -136,7 +129,6 @@ const ServicesSection = () => {
       bgColor: ' bg-primary-yellow-light ',
       bgcolorCollapsed: '#FCF4D7',
       mobileTextColor: ' text-[#7A5C00] ',
-      iconAlt: 'Atom with sparkle icon representing AI and smart technology',
     },
     {
       id: 'shopify',
@@ -146,7 +138,6 @@ const ServicesSection = () => {
       bgColor: 'bg-primary-green-light',
       bgcolorCollapsed: '#D6F5E4',
       mobileTextColor: 'text-[#00704E]',
-      iconAlt: 'Shopify shopping bag icon',
     },
     {
       id: 'web',
@@ -156,7 +147,6 @@ const ServicesSection = () => {
       bgColor: 'bg-primary-coral-light',
       bgcolorCollapsed: '#fde3e5',
       mobileTextColor: 'text-[#B3202D]',
-      iconAlt: 'Laptop icon representing web development',
     },
     {
       id: 'design',
@@ -166,7 +156,6 @@ const ServicesSection = () => {
       bgColor: 'bg-primary-yellow-light',
       bgcolorCollapsed: '#fcf4d7',
       mobileTextColor: 'text-[#7A5C00]',
-      iconAlt: 'Pen nib icon representing design and creative work',
     },
     {
       id: 'saas',
@@ -176,7 +165,6 @@ const ServicesSection = () => {
       bgColor: 'bg-primary-green-light',
       bgcolorCollapsed: '#d6F5E4',
       mobileTextColor: 'text-[#00704E]',
-      iconAlt: 'Cloud network icon representing SaaS platforms',
     },
     {
       id: 'ecommerce',
@@ -186,7 +174,6 @@ const ServicesSection = () => {
       bgColor: 'bg-primary-coral-light',
       bgcolorCollapsed: '#fde3e5',
       mobileTextColor: 'text-[#123B42]',
-      iconAlt: 'Shopping cart with add icon representing e-commerce',
     },
   ];
 
@@ -224,7 +211,7 @@ const ServicesSection = () => {
                   style={service.bgColor.startsWith('#') ? { backgroundColor: service.bgColor } : undefined}
                   className={`mobile-bg-transparent w-20 md:h-20 h-auto rounded-[10px] flex items-center justify-center mx-auto md:mb-10 mb-4`}
                 >
-                  <Image src={service.icon} alt={service.iconAlt ?? ''}  width={36} height={36} />
+                  <Image src={service.icon} alt="" width={36} height={36} />
                 </div>
                 <h3
                   className={`font-[500] md:font-[600] md:text-title md:mb-[15px] mb-0 md:h-auto h-[60px] md:leading-[normal] md:text-[22px] text-[16px] leading-[22px] md:px-0 px-[15px]  content-center ${service.mobileTextColor}`}

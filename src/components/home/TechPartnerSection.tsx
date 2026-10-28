@@ -160,12 +160,12 @@ const TechPartnerSection = () => {
               <span className="font-semibold"> out there</span>
               </span>
             </h2>
-            <div className="md:space-y-4 space-y-2 leading-[1] text-title ">
-              <div className="flex md:gap-4 gap-2 items-center">
+            {/* WCAG 1.3.1: a visual checklist is exposed as a list */}
+            <ul role="list" className="md:space-y-4 space-y-2 leading-[1] text-title ">
+              <li className="flex md:gap-4 gap-2 items-center">
                 <Image
                   src={checkIcon}
-                  alt="Checkmark icon indicating a feature or benefit"
-                  aria-hidden="true"
+                  alt=""
                   width={24}
                   height={24}
                   // className="md:w-[auto] w-[20px] md:h-[auto] h-[20px] md:mt-[-5px] mt-[-2px] hidden md:block"
@@ -173,8 +173,7 @@ const TechPartnerSection = () => {
                 />
                 <Image
                   src={checkIcon}
-                  alt="Checkmark icon indicating a feature or benefit"
-                  aria-hidden="true"
+                  alt=""
                   width={24}
                   height={24}
                   className="w-auto md:hidden block md:w-[auto]"
@@ -183,13 +182,12 @@ const TechPartnerSection = () => {
                 <p className="font-[400] font-roboto text-[#212529] md:text-[19px] text-16px">
                   Perfectly managed worry-free delivery
                 </p>
-              </div>
+              </li>
 
-              <div className="flex md:gap-4 gap-2 items-center">
+              <li className="flex md:gap-4 gap-2 items-center">
                 <Image
                   src={checkIcon}
-                  alt="Checkmark icon indicating a feature or benefit"
-                  aria-hidden="true"
+                  alt=""
                   width={24}
                   height={24}
                   className="md:w-[auto] w-[20px] md:h-[auto] h-[20px] hidden md:block"
@@ -197,20 +195,18 @@ const TechPartnerSection = () => {
                 />
                 <Image
                   src={checkIcon}
-                  alt="Checkmark icon indicating a feature or benefit"
-                  aria-hidden="true"
+                  alt=""
                   width={24}
                   height={24}
                   className="w-auto md:hidden block md:w-[auto]"
                   // className="w-auto md:hidden mt-[-4px] block md:w-[auto]"
                 />
                 <p className="font-[400] font-roboto text-[#212529] md:text-[19px] text-16px">Fast turn-around time</p>
-              </div>
-              <div className="flex md:gap-4 gap-2 items-center">
+              </li>
+              <li className="flex md:gap-4 gap-2 items-center">
                 <Image
                   src={checkIcon}
-                  alt="Checkmark icon indicating a feature or benefit"
-                  aria-hidden="true"
+                  alt=""
                   width={24}
                   height={24}
                   className="md:w-[auto] w-[20px] md:h-[auto] h-[20px] hidden md:block"
@@ -218,8 +214,7 @@ const TechPartnerSection = () => {
                 />
                 <Image
                   src={checkIcon}
-                  alt="Checkmark icon indicating a feature or benefit"
-                  aria-hidden="true"
+                  alt=""
                   width={24}
                   height={24}
                   className="w-auto md:hidden block md:w-[auto]"
@@ -228,12 +223,11 @@ const TechPartnerSection = () => {
                 <p className="font-[400] font-roboto text-[#212529] md:text-[19px] text-16px">
                   Multi-layered Quality Assurance
                 </p>
-              </div>
-              <div className="flex md:gap-4 gap-2 items-center">
+              </li>
+              <li className="flex md:gap-4 gap-2 items-center">
                 <Image
                   src={checkIcon}
-                  alt="Checkmark icon indicating a feature or benefit"
-                  aria-hidden="true"
+                  alt=""
                   width={24}
                   height={24}
                   className="md:w-[auto] w-[20px] md:h-[auto] h-[20px] hidden md:block"
@@ -241,8 +235,7 @@ const TechPartnerSection = () => {
                 />
                 <Image
                   src={checkIcon}
-                  alt="Checkmark icon indicating a feature or benefit"
-                  aria-hidden="true"
+                  alt=""
                   width={24}
                   height={24}
                   className="w-auto md:hidden block md:w-[auto]"
@@ -251,12 +244,11 @@ const TechPartnerSection = () => {
                 <p className="font-[400] font-roboto text-[#212529] md:text-[19px] text-16px">
                   Idea, Confidentiality & Data Protection
                 </p>
-              </div>
-              <div className="flex md:gap-4 gap-2 items-center">
+              </li>
+              <li className="flex md:gap-4 gap-2 items-center">
                 <Image
                   src={checkIcon}
-                  alt="Checkmark icon indicating a feature or benefit"
-                  aria-hidden="true"
+                  alt=""
                   width={24}
                   height={24}
                   className="md:w-[auto] w-[20px] md:h-[auto] h-[20px] hidden md:block"
@@ -264,16 +256,15 @@ const TechPartnerSection = () => {
                 />
                 <Image
                   src={checkIcon}
-                  alt="Checkmark icon indicating a feature or benefit"
-                  aria-hidden="true"
+                  alt=""
                   width={24}
                   height={24}
                   className="w-auto md:hidden block backdrop:md:w-[auto]"
                   // className="w-auto md:hidden block mt-[-4px] md:w-[auto]"
                 />
                 <p className="font-[400] font-roboto text-[#212529] md:text-[19px] text-16px">30 days free maintenance</p>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

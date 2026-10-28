@@ -40,9 +40,9 @@ const CtaSection: React.FC<HerSectionProps> = ({ openModal }) => {
           <div className="relative px-[16px] md:pt-[65px] md:pb-[75px] pt-[40px] pb-[0px] md:text-left text-center lg:px-[60px] text-title z-10">
             <div className="lg:max-w-[530px] md:max-w-[480px] max-w-full">
               <h2 className="md:font-[600] font-[700] font-source md:text-primary-white md:text-[38px] text-[23px] md:mb-4 mb-4 md:leading-[45px] md:p-0 px-[20px] leading-[normal]">
-                Discover the digital 
-                <span className='md:block inline md:pl-0 pl-[5px]'>possibilities we can help you </span>
-                <span className='md:block inline md:pl-0 pl-[5px]'> unlock for your business!</span>
+                Discover the digital{' '}
+                <span className='md:block inline'>possibilities we can help you </span>
+                <span className='md:block inline'>unlock for your business!</span>
               </h2>
               <p className="md:text-primary-white md:text-[19px] text-[16px] md:mb-8 mb-4 leading-relaxed max-w-[100%] md:max-w-[92%] mr-auto">
                 We understand your unique way of work and provide bespoke technology solutions.

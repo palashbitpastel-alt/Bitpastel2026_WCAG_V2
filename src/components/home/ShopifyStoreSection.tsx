@@ -107,18 +107,18 @@ const ShopifyStoreSection = () => {
               />
             </div>
             <h2 className=' font-source md:font-[600] font-[700] md:text-[38px] text-[23px] mb-6 md:leading-[45px] leading-[normal] text-[#007A56] mobile-margin-bottom mb-[15px]'>
-              <span className=''>400+</span> Shopify Stores
+              <span className=''>400+</span> Shopify Stores{' '}
               <span className ="block">& <span className=''>100+</span> Shopify Plus Stores </span>
             </h2>
             {/* <p className="text-[16px] leading-[26px] text-title md:leading-relaxed mb-8"> */}
             <p className='lg:text-[18px] md:max-w-[500px] md:text-[16px] text-[16px] leading-[26px] md:p-0 px-[10px] text-[#222B32] md:leading-relaxed'>
               We have helped 250+ brands grow from scratch to $1M GMV.
-              <span className='md:inline-block inline md:pl-0 pl-[5px]' />
+              {' '}
               At Bitpastel, we build differentiated, fast, and scalable online
-              <span className='md:inline-block inline md:pl-0 pl-[5px]' />
+              {' '}
               stores to help you provide the best customer experience!
               We also deliver speed and performance optimization that
-              <span className='md:inline-block inline md:pl-0 pl-[5px]' />
+              {' '}
               contributes to better conversion rates.
             </p>
 
@@ -130,6 +130,8 @@ const ShopifyStoreSection = () => {
                 scroll={true}
               >
                 Get Started
+                {/* WCAG 2.4.4: say what gets started */}
+                <span className='sr-only'> with your Shopify store</span>
               </Link>
             </div>
             {/* <p className='text-[14px] leading-[26px] md:p-0 px-[10px] font-roboto font-[400] md:leading-relaxed mt-[5px] text-[#666666]'>
@@ -177,7 +179,7 @@ const ShopifyStoreSection = () => {
               />
             </div> */}
             <h2 className=' font-source md:font-[600] font-[700] md:text-[38px] text-[23px] mb-6 md:leading-[45px] leading-[normal] text-[#007A56] mobile-margin-bottom mb-[15px]'>
-              Building Scalable SaaS
+              Building Scalable SaaS{' '}
               <span className="block">
               Platforms that grow with you
               </span>
@@ -190,11 +192,11 @@ const ShopifyStoreSection = () => {
               <span className="md:block inline md:pl-0 pl-[5px]" />
               stores to help you provide the best customer experience! */}
               We create SaaS solutions tailored to your business goals which
-              <span className='md:inline-block inline md:pl-0 pl-[5px]' />
+              {' '}
               are secure, scalable, and designed for seamless growth, helping
-              <span className='md:inline-block inline md:pl-0 pl-[5px]' />
+              {' '}
               you streamline operations, boost collaboration, and enhance
-              <span className='md:inline-block inline md:pl-0 pl-[5px]' />
+              {' '}
               customer experiences.
             </p>
             {/* <button className="btn font-roboto h-auto  font-[400] bg-green-btn">
@@ -228,7 +230,7 @@ const ShopifyStoreSection = () => {
             <h2 className=' font-source md:font-[600] font-[700] md:text-[38px] text-[23px] mb-6 md:leading-[45px] leading-[normal] text-[#007A56] mobile-margin-bottom mb-[15px]'>
               {/* <span className="text-accent-green">200+</span> Shopify Stores
               <br />& <span className="text-accent-green">50+</span> Shopify Plus Stores */}
-              Transforming Businesses
+              Transforming Businesses{' '}
               <span className="block">
               with AI and Automation
               </span>
@@ -242,11 +244,11 @@ const ShopifyStoreSection = () => {
               <span className="md:block inline md:pl-0 pl-[5px]" />
               stores to help you provide the best customer experience! */}
               We build AI-powered solutions that help transform businesses
-              <span className='md:inline-block inline md:pl-0 pl-[5px]' />
-              through intelligent automation, predictive insights, and human-
-              <span className='md:inline-block inline md:pl-0 pl-[5px]' />
-              centric design - boosting efficiency, fueling innovation, and
-              <span className='md:inline-block inline md:pl-0 pl-[5px]' />
+              {' '}
+              through intelligent automation, predictive insights, and human-centric
+              {' '}
+              design - boosting efficiency, fueling innovation, and
+              {' '}
               enabling smarter decisions at scale.
             </p>
             {/* <button className="btn font-roboto h-auto  font-[400] bg-green-btn">
