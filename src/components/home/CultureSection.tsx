@@ -259,6 +259,9 @@ const CultureSection = () => {
                   <span className="md:hidden block arrow-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
+                      // Decorative: the heading beside it already names the item
+                      aria-hidden="true"
+                      focusable="false"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
