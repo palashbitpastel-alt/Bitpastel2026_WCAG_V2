@@ -190,7 +190,13 @@ const ServicesSection = () => {
             <div
               key={service.id}
               onClick={() => handleClick(index)}
-              style={{ borderColor: `var(--${service.bgColor.trim().replace(/^bg-/, '')})` }}
+              // Desktop data uses hex colours ('#D6F5E4'), mobile data uses Tailwind classes
+              // ('bg-primary-yellow-light' -> var(--primary-yellow-light)); var(--#hex) is invalid CSS
+              style={{
+                borderColor: service.bgColor.trim().startsWith('#')
+                  ? service.bgColor.trim()
+                  : `var(--${service.bgColor.trim().replace(/^bg-/, '')})`,
+              }}
               // className="text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer py-10"
               className={`card-element text-center transition-shadow duration-300m md:min-w-[275px] min-w-[unset] cursor-pointer md:py-8 pt-[20px] pb-8 md:bg-transparent ${service.bgColor.startsWith('#') ? '' : service.bgColor} border-1 borde md:rounded rounded-[20px] md:min-h-full min-h-[160px]
                         ${activeIndex === index ? 'active' : ''}
