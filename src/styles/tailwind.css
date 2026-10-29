@@ -277,10 +277,6 @@ button {
   color: var(--primary-white) !important;
 }
 
-input:focus-visible {
-  border: none;
-  outline: none;
-}
 
 @keyframes fadeInUp {
   0% {
@@ -787,10 +783,6 @@ textarea::placeholder {
   color: #b2b2b2;
 }
 
-.modal-container input:focus-visible {
-  border: none;
-  outline: none;
-}
 
 .card {
   cursor: pointer;
