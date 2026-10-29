@@ -2839,7 +2839,7 @@ a.horizon-nav-menu::after {
   /* WCAG 1.4.12: min-height (not a fixed height) so a label that wraps under
      text-spacing overrides grows the pill instead of touching its edge */
   min-height: 44px;
-  height: auto;
+  /* height: auto; */
   border-radius: 100px;
   /* #007A55 (was #00855D): white text now 5.4:1 instead of a borderline 4.6:1 */
   background-color: #00855D;
