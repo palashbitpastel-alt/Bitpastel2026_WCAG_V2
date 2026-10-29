@@ -786,7 +786,9 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
 
            <div className="root-mobile-nav animated-up lg:hidden fixed bottom-4 left-4 right-4 z-50" style={{  borderRadius: "100px",
               border: "0.5px solid rgba(180, 180, 180, 0.50)",
-              background: "rgba(255, 255, 255, 0.60)",
+              // Solid white (was 60% translucent) so nav label contrast never depends on
+              // what scrolls behind the bar (WCAG 1.4.3)
+              background: "#FFFFFF",
               boxShadow: "1px 1px 8.8px 0 rgba(0, 0, 0, 0.13)",
               height: "60px",
               backdropFilter: "blur(10px)",

@@ -1002,7 +1002,8 @@ margin-top:0 !important;
         } */
 
 .nav-item.current span {
-  color: #006B4B;
+  /* #00563C (was #006B4B): 8.7:1 on white, also meets the 7:1 enhanced level */
+  color: #00563C;
   font-weight: bold;
 }
 /* 
