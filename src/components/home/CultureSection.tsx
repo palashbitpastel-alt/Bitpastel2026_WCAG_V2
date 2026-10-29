@@ -239,6 +239,7 @@ const CultureSection = () => {
                   <Image
                     src={feature.icon}
                     alt=""
+                    aria-hidden="true"
                     width={24}
                     height={24}
                     quality={100}

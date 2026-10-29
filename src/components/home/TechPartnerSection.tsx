@@ -166,6 +166,7 @@ const TechPartnerSection = () => {
                 <Image
                   src={checkIcon}
                   alt=""
+                  aria-hidden="true"
                   width={24}
                   height={24}
                   // className="md:w-[auto] w-[20px] md:h-[auto] h-[20px] md:mt-[-5px] mt-[-2px] hidden md:block"
@@ -174,6 +175,7 @@ const TechPartnerSection = () => {
                 <Image
                   src={checkIcon}
                   alt=""
+                  aria-hidden="true"
                   width={24}
                   height={24}
                   className="w-auto md:hidden block md:w-[auto]"
@@ -188,6 +190,7 @@ const TechPartnerSection = () => {
                 <Image
                   src={checkIcon}
                   alt=""
+                  aria-hidden="true"
                   width={24}
                   height={24}
                   className="md:w-[auto] w-[20px] md:h-[auto] h-[20px] hidden md:block"
@@ -196,6 +199,7 @@ const TechPartnerSection = () => {
                 <Image
                   src={checkIcon}
                   alt=""
+                  aria-hidden="true"
                   width={24}
                   height={24}
                   className="w-auto md:hidden block md:w-[auto]"
@@ -207,6 +211,7 @@ const TechPartnerSection = () => {
                 <Image
                   src={checkIcon}
                   alt=""
+                  aria-hidden="true"
                   width={24}
                   height={24}
                   className="md:w-[auto] w-[20px] md:h-[auto] h-[20px] hidden md:block"
@@ -215,6 +220,7 @@ const TechPartnerSection = () => {
                 <Image
                   src={checkIcon}
                   alt=""
+                  aria-hidden="true"
                   width={24}
                   height={24}
                   className="w-auto md:hidden block md:w-[auto]"
@@ -228,6 +234,7 @@ const TechPartnerSection = () => {
                 <Image
                   src={checkIcon}
                   alt=""
+                  aria-hidden="true"
                   width={24}
                   height={24}
                   className="md:w-[auto] w-[20px] md:h-[auto] h-[20px] hidden md:block"
@@ -236,6 +243,7 @@ const TechPartnerSection = () => {
                 <Image
                   src={checkIcon}
                   alt=""
+                  aria-hidden="true"
                   width={24}
                   height={24}
                   className="w-auto md:hidden block md:w-[auto]"
@@ -249,6 +257,7 @@ const TechPartnerSection = () => {
                 <Image
                   src={checkIcon}
                   alt=""
+                  aria-hidden="true"
                   width={24}
                   height={24}
                   className="md:w-[auto] w-[20px] md:h-[auto] h-[20px] hidden md:block"
@@ -257,6 +266,7 @@ const TechPartnerSection = () => {
                 <Image
                   src={checkIcon}
                   alt=""
+                  aria-hidden="true"
                   width={24}
                   height={24}
                   className="w-auto md:hidden block backdrop:md:w-[auto]"

@@ -425,6 +425,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         <Image
           src={testimonial.image}
           alt=""
+          aria-hidden="true"
           width={56}
           height={56}
           className="rounded-full object-cover md:h-[56px] md:w-[56px] w-[40px] h-[40px]"

@@ -53,6 +53,7 @@ const SatisfiedClientSection = () => {
                 <Image
                   src={stat.icon}
                   alt=""
+                  aria-hidden="true"
                   width={62}
                   height={62}
                   className="mx-auto md:mb-6 mb-2 md:h-auto md:max-w-[60px] md:min-w-[40px] h-[30px] md:w-auto w-[30px]"

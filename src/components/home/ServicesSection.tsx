@@ -211,7 +211,7 @@ const ServicesSection = () => {
                   style={service.bgColor.startsWith('#') ? { backgroundColor: service.bgColor } : undefined}
                   className={`mobile-bg-transparent w-20 md:h-20 h-auto rounded-[10px] flex items-center justify-center mx-auto md:mb-10 mb-4`}
                 >
-                  <Image src={service.icon} alt="" width={36} height={36} />
+                  <Image src={service.icon} alt="" aria-hidden="true" width={36} height={36} />
                 </div>
                 <h3
                   className={`font-[500] md:font-[600] md:text-title md:mb-[15px] mb-0 md:h-auto h-[60px] md:leading-[normal] md:text-[22px] text-[16px] leading-[22px] md:px-0 px-[15px]  content-center ${service.mobileTextColor}`}
