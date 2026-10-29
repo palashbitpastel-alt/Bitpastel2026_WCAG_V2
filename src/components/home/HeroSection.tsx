@@ -61,7 +61,7 @@ const HeroSection: React.FC<HerSectionProps> = ({ openModal }) => {
           className="block md:hidden relative w-full h-[310px]">
           <Image
             src={BannerMobile}
-            alt="Smiling business owner in a restaurant"
+            alt="Close-up of a smiling restaurant owner in a light blazer"
             quality={60}
             fill
             style={{

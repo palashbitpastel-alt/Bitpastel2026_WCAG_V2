@@ -28,7 +28,7 @@ const CtaSection: React.FC<HerSectionProps> = ({ openModal }) => {
           <div className="md:hidden block w-full min-h-[310px] relative rounded-bl-[20px] rounded-tl-[20px] ml-4 overflow-hidden">
             <Image
               src="/images/mobile cta.webp"
-              alt="Smiling team members working together in an office"
+              alt="Two smiling women in glasses talking with a colleague"
               fill
               quality={60}
               className="object-cover object-[73%_10%]"

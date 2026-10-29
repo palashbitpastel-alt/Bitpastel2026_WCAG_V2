@@ -424,7 +424,7 @@ const Header = ({ forceModalOpen = false, onModalClose }: HomePageProps) => {
             <Link href="/" prefetch={true} onClick={handleLogoClick} className="inline-block rounded-[4px]">
               <Image
                 src={isScrolled || forceGreenMobileHeader ? "/images/icons/mb_green.svg" : "/images/icons/mb_dark.svg"}
-                alt="Bitpastel home"
+                alt="Bitpastel home page"
                 width={101}
                 height={28}
                 priority

@@ -333,7 +333,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                 >
                   <Image
                     src={bitpastelLogoNew}
-                    alt="Bitpastel home"
+                    alt="Bitpastel logo, back to home page"
                     width={202}
                     height={77}
                     className="h-[77px] mb-[-15px] w-auto block"
