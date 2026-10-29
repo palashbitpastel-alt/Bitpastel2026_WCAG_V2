@@ -307,7 +307,7 @@ const CultureSection = () => {
                 width={783}  // Actual image width
                 height={578}   // Actual image height
                 quality={75}
-                className="w-full md:h-full h-auto"
+                className="w-full md:h-full h-auto object-cover"
                 priority
               />
             </div>
