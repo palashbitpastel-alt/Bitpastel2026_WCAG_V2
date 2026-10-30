@@ -758,7 +758,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                     </li>
                   </ul>
                 </div>
-                <p className="lg:hidden block text-center text-white text-[12px] font-roboto font-[300] lg:max-w-[100%] max-w-[100%] mx-auto">
+                <p className="lg:hidden block text-center text[#ffffff] text-[12px] font-roboto font-[300] lg:max-w-[100%] max-w-[100%] mx-auto">
                   Copyright © Bitpastel Solution Private Limited {new Date().getFullYear()}
                   <br />
                   All Rights Reserved
@@ -774,7 +774,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
               style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}
             >
               <p className="text-center text-[#FCFFF9] lg:text-[14px] text-[12px] font-roboto font-[400] lg:max-w-[100%] max-w-[80%] mx-auto">
-                Copyright © Bitpastel Solution Private Limited {new Date().getFullYear()} | All Rights Reserved |{' '}
+                 {new Date().getFullYear()} | All Rights Reserved |{' '}
                 <Link prefetch={true} href="#" /* original href: "/privacy-policy" */ className="underline underline-offset-[3px] hover:decoration-2">
                   Privacy Policy
                 </Link>

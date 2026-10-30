@@ -284,7 +284,7 @@ const CultureSection = () => {
                     opacity: activeIndex === index ? 1 : 0,
                   }}
                 >
-                  <ul className="pl-[36px] text-title mt-4">
+                  <ul role="list" className="pl-[36px] text-title mt-4">
                     {feature.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="leading-[normal] font-roboto text-[13px] mb-2">
                         {item}
@@ -295,7 +295,7 @@ const CultureSection = () => {
 
                 {/* Desktop Static Content (hidden on mobile) */}
                 <div className="hidden md:block">
-                  <ul className="lg:pl-[25px] md:pl-[41px] text-[#222B32]">
+                  <ul role="list" className="lg:pl-[25px] md:pl-[41px] text-[#222B32]">
                     {feature.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="leading-[1] font-roboto text-[16px] md:mb-3">
                         {item}
