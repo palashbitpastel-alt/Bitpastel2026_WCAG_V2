@@ -18,7 +18,7 @@ Bitpastel is a software-development agency; this site is its public marketing an
   - **Portfolio** — projects slider.
   - **Shopify** — a dedicated Shopify Plus landing / migration page.
   - **Partners** — a partner program with "Become a Partner" and partner-member signup forms.
-- **Contact surface:** phone numbers for US / UK / IN, WhatsApp links, and `connect@bitpastel.com`. The office is in Kolkata, India (Technopolis Building); the privacy policy is governed by Indian law.
+- **Contact surface:** phone numbers for US / UK / IN, WhatsApp links, and `connect@bitpastel.com`. The office is in Kolkata, India (Godrej Genesis, Salt Lake Sector V); the privacy policy is governed by Indian law.
 
 ---
 

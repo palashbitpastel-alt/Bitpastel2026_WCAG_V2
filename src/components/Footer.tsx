@@ -346,12 +346,15 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                 </h2>
                 <div className="text-[16px] lg:mb-0 mb-[1rem] leading-relaxed block">
                   <a
-                    href="#" /* original href: "https://www.google.com/maps/place/Technopolis+Building/@22.5797323,88.4351652,17z/data=!4m14!1m7!3m6!1s0x3a0275a701908349:0x8d6c12852bc079bc!2sTechnopolis+Building!8m2!3d22.5797323!4d88.4377401!16s%2Fg%2F11hblq2494!3m5!1s0x3a0275a701908349:0x8d6c12852bc079bc!8m2!3d22.5797323!4d88.4377401!16s%2Fg%2F11hblq2494?entry=ttu" */
+                    href="#" /* original href: "https://www.google.com/maps/search/?api=1&query=Godrej+Genesis+Sector+V+Salt+Lake+Kolkata+700091" */
                     /* target="_blank" */
                     rel="noopener noreferrer"
                   >
                     <span className="inline">
-                      Technopolis, 11th Floor, BP Block, Sector V,
+                      Godrej Genesis, 16th Floor, Unit 1604,
+                      <span className="block">
+                      Street Number 18, EP &amp; GP Block,
+                      </span>
                       <span className="block">
                       Salt Lake City, Kolkata - 700091
                       </span>
