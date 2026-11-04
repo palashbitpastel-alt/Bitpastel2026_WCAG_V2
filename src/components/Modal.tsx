@@ -2,7 +2,7 @@
 
 import type React from 'react';
 import Image from 'next/image';
-import { useCallback, useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import * as countryCodesList from 'country-codes-list';
 import PhoneInput, { parsePhoneNumber } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
@@ -238,22 +238,6 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-
-  // The reCAPTCHA checkbox is a fixed 304x78 iframe; scale it evenly so it spans
-  // the form's full width like the fields and buttons around it.
-  const RECAPTCHA_WIDTH = 304;
-  const RECAPTCHA_HEIGHT = 78;
-  const [captchaScale, setCaptchaScale] = useState(1);
-  const captchaObserverRef = useRef<ResizeObserver | null>(null);
-  const captchaWrapRef = useCallback((el: HTMLDivElement | null) => {
-    captchaObserverRef.current?.disconnect();
-    captchaObserverRef.current = null;
-    if (!el) return;
-    const update = () => setCaptchaScale(el.clientWidth / RECAPTCHA_WIDTH);
-    update();
-    captchaObserverRef.current = new ResizeObserver(update);
-    captchaObserverRef.current.observe(el);
-  }, []);
 
   useEffect(() => {
     serviceDropdownOpenRef.current = isServiceDropdownOpen;
@@ -809,8 +793,6 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                           {/* ReCAPTCHA */}
                           {formData.service && formData.fullName && formData.email && (
                             <div className="mb-3">
-                              <div ref={captchaWrapRef} className="w-full" style={{ height: RECAPTCHA_HEIGHT * captchaScale }}>
-                                <div style={{ width: RECAPTCHA_WIDTH, transform: `scale(${captchaScale})`, transformOrigin: '0 0' }}>
                               <ReCAPTCHA
                                 ref={recaptchaRef}
                                 sitekey="6LdSzGEUAAAAABG0EhsRTOkyJUyTqwFz6gpNX8g1"
@@ -821,8 +803,6 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                                 onExpired={() => setCaptchaToken(null)}
                                 size="normal"
                               />
-                                </div>
-                              </div>
                               {captchaError && (
                                 <p role="alert" className="text-xs text-[#B42318] mt-1">
                                   Please confirm you are not a robot.
