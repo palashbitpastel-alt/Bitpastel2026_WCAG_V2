@@ -2,7 +2,7 @@
 
 import type React from 'react';
 import Image from 'next/image';
-import { useEffect, useState, useRef } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 import * as countryCodesList from 'country-codes-list';
 import PhoneInput, { parsePhoneNumber } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
@@ -238,6 +238,22 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  // The reCAPTCHA checkbox is a fixed 304x78 iframe; scale it evenly so it spans
+  // the form's full width like the fields and buttons around it.
+  const RECAPTCHA_WIDTH = 304;
+  const RECAPTCHA_HEIGHT = 78;
+  const [captchaScale, setCaptchaScale] = useState(1);
+  const captchaObserverRef = useRef<ResizeObserver | null>(null);
+  const captchaWrapRef = useCallback((el: HTMLDivElement | null) => {
+    captchaObserverRef.current?.disconnect();
+    captchaObserverRef.current = null;
+    if (!el) return;
+    const update = () => setCaptchaScale(el.clientWidth / RECAPTCHA_WIDTH);
+    update();
+    captchaObserverRef.current = new ResizeObserver(update);
+    captchaObserverRef.current.observe(el);
+  }, []);
 
   useEffect(() => {
     serviceDropdownOpenRef.current = isServiceDropdownOpen;
@@ -612,13 +628,13 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                               aria-controls="quote-service-list"
                               aria-labelledby="quote-service-label quote-service-value"
                               aria-invalid={validationErrors.service || undefined}
-                              aria-describedby={validationErrors.service ? 'quote-service-error' : undefined}
+                              aria-describedby={validationErrors.service ? 'quote-service-required quote-service-error' : 'quote-service-required'}
                               onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
                               onKeyDown={handleServiceTriggerKeyDown}
                               className={`w-full flex items-center focus:outline-none py-2 px-0 h-auto justify-start ${validationErrors.service ? 'text-red-500' : ''
                                 }`}
                             >
-                              <span id="quote-service-label" className="text-[#123B42] tex-[16px] font-[400] tracking-[-3%] leading-[28px]">I want<span className="sr-only"> (required)</span></span>
+                              <span id="quote-service-label" className="text-[#123B42] tex-[16px] font-[400] tracking-[-3%] leading-[28px]">I want</span>
                               <span
                                 id="quote-service-value"
                                 className={`ml-12 text-[16px] tracking-[-3%] leading-[28px] ${formData.service ? 'font-[400]' : 'font-[100]'} ${validationErrors.service
@@ -635,6 +651,9 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                                   }`}
                               />
                             </button>
+
+                            {/* Read as the button's description, so the accessible name stays equal to the visible text (WCAG 2.5.3) */}
+                            <span id="quote-service-required" className="sr-only">Required</span>
 
                             {isServiceDropdownOpen && (
                               <div
@@ -728,7 +747,12 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                           </div>
 
                           <div className={`relative flex items-center gap-2 md:py-1 border-b `}>
+                            {/* Real <label> for the country picker; some checkers ignore aria-label on a select */}
+                            <label htmlFor="quote-phone-country" className="sr-only">
+                              Phone number country
+                            </label>
                             <PhoneInput
+                              countrySelectProps={{ id: 'quote-phone-country', title: 'Phone number country' }}
                               international
                               defaultCountry={defaultCountry as any}
                               countryCallingCodeEditable={false}
@@ -785,6 +809,8 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                           {/* ReCAPTCHA */}
                           {formData.service && formData.fullName && formData.email && (
                             <div className="mb-3">
+                              <div ref={captchaWrapRef} className="w-full" style={{ height: RECAPTCHA_HEIGHT * captchaScale }}>
+                                <div style={{ width: RECAPTCHA_WIDTH, transform: `scale(${captchaScale})`, transformOrigin: '0 0' }}>
                               <ReCAPTCHA
                                 ref={recaptchaRef}
                                 sitekey="6LdSzGEUAAAAABG0EhsRTOkyJUyTqwFz6gpNX8g1"
@@ -795,6 +821,8 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                                 onExpired={() => setCaptchaToken(null)}
                                 size="normal"
                               />
+                                </div>
+                              </div>
                               {captchaError && (
                                 <p role="alert" className="text-xs text-[#B42318] mt-1">
                                   Please confirm you are not a robot.
