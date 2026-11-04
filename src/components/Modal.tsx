@@ -603,7 +603,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                 </div>
 
                 {/* Form Section */}
-                <div className="bg-[#fff] md:p-[23px] rounded-[10px] py-[9px] px-[24px] md:shadow-[0px_1px_11.3px_0px_#00000070] modalform-area-mob flex flex-col h-[100%]">
+                <div className="bg-[#FCFFF9] md:p-[23px] rounded-[10px] py-[9px] px-[24px] md:shadow-[0px_1px_11.3px_0px_#00000070] modalform-area-mob flex flex-col h-[100%]">
                   {isSuccess ? (
                     <>
                       <div className="grid grid-cols-1 min-h-[450px] place-items-center justify-between">

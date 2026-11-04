@@ -349,7 +349,7 @@ input:focus-visible {
   max-width: 1050px;
   width: 90%;
   min-height: 100px;
-  background-color: #fff !important;
+  background-color: #FCFFF9!important;
   border-radius: 5px;
   background: url('/images/popup_bg_web1.png') bottom / contain no-repeat;
   background-position: 50% 100% !important;
