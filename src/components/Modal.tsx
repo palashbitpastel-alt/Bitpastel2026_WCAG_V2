@@ -734,7 +734,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                                 role="listbox"
                                 aria-labelledby="quote-service-label"
                                 onKeyDown={handleServiceListKeyDown}
-                                className="absolute top-full left-0 right-0 mt-1 bg-[#ffffff] border border-gray-200 rounded-lg shadow-lg z-20 max-h-48 overflow-y-auto"
+                                className="absolute top-full left-0 right-0 mt-1 bg-[#FCFFF9] border border-gray-200 rounded-lg shadow-lg z-20 max-h-48 overflow-y-auto"
                               >
                                 {services.map((service, i) => (
                                   <div
