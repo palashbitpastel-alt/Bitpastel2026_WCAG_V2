@@ -497,108 +497,16 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
 
         <div className="w-full md:rounded-[10px] shadow-xl overflow-hidden">
           <div className="md:p-[30px]">
-            <div className="flex flex-col md:flex-row gap-[18px]">
-              {/* Left side - Image and details */}
-              <div className="lg:w-[60%] md:w-[50%] md:flex md:flex-col hidden">
-                <div className="mb-[53px]">
-                  <Image
-                    src={ContactUs}
-                    alt="Get your business online today with Bitpastel: a team celebrating in an office"
-                    className="w-full h-auto object-cover "
-                  />
-                </div>
-                <div className="mt-auto">
-                  <h2 className="text-[32px] text-center md:mb-[20px] font-[600] leading-[36px] tracking-[-1px] mb-6 text-title font-source">
-                    Satisfied Client Worldwide
-                  </h2>
-
-                  <div className="grid lg:grid-cols-4 md:grid-cols-2 md:gap-[10px] ">
-                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#0D9EBF4D] shadow-[0.47px_0.95px_8.54px_0px_#00000014]">
-                      <Image
-                        src="/images/modal-stat-clients.svg"
-                        alt=""
-                        width={30}
-                        height={30}
-                        className="mx-auto mb-[15px] h-[30px]"
-                      />
-                      <p className="text-[20px] text-[#222B32] font-roboto font-bold leading-[16px]">900</p>
-                      <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Clients</p>
-                    </div>
-
-                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#B48D0E4D] shadow-[0.47px_0.95px_8.54px_0px_#00000014]">
-                      <Image
-                        src="/images/modal-stat-projects.svg"
-                        alt=""
-                        width={30}
-                        height={30}
-                        className="mx-auto mb-[15px] h-[30px]"
-                      />
-                      <p className="text-[20px] text-[#222B32] font-roboto font-bold leading-[16px]">1400+</p>
-                      <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Projects</p>
-                    </div>
-
-                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#F245534D] shadow-[0.47px_0.95px_8.54px_0px_#00000014]">
-                      <Image
-                        src="/images/modal-stat-code.svg"
-                        alt=""
-                        width={30}
-                        height={30}
-                        className="mx-auto mb-[15px] h-[30px]"
-                      />
-                      <p className="text-[20px] text-[#222B32] font-roboto font-bold leading-[16px]">50M</p>
-                      <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Lines of Code</p>
-                    </div>
-
-                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#29996A4D] shadow-[0.47px_0.95px_8.54px_0px_#00000014]">
-                      <Image
-                        src="/images/modal-stat-countries.svg"
-                        alt=""
-                        width={30}
-                        height={30}
-                        className="mx-auto mb-[15px] h-[30px]"
-                      />
-                      <p className="text-[20px] text-[#222B32] font-roboto font-bold leading-[16px]">35</p>
-                      <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Countries</p>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap justify-center lg:gap-0 gap-4 pt-6 text-center lg:mr-[-17px]">
-                    <p className="text-[#123B42] text-[17px] leading-[18px] font-[600] font-source border-right w-full lg:w-1/3 md:w-full lg:flex justify-center mb-2 lg:mb-0">
-                      <a href="tel:+18724446679">
-                        <span className="font-[700] pr-[3px]">
-                        US: 
-                        </span>
-                         +1 (872) 444 6679</a>
-                    </p>
-                    <p className="text-[#123B42] text-[17px] leading-[18px] font-[600] font-source border-right w-full md:w-full lg:w-1/3 flex justify-center mb-2 lg:mb-0">
-                      {/* <a target='_blank' href="https://api.whatsapp.com/send/?phone=442081446579&text=Hey...+I+would+like+to+have+a+quick+chat+with+you.&type=phone_number&app_absent=0">UK: +44 2081 446579</a> */}
-                      {/* <a target='_blank' href="https://api.whatsapp.com/send/?phone=447469539191&text=Hey...+I+would+like+to+have+a+quick+chat+with+you.&type=phone_number&app_absent=0">UK: +44 7469 539191</a> */}
-                      <a href="tel:+447469539191">
-                        <span className="font-[700] pr-[3px]">
-                        UK: 
-                        </span>
-                        +44 7469 539191</a>
-                    </p>
-
-                    
-
-                    <p className="text-[#123B42] text-[17px] leading-[18px] font-[600] font-source w-full lg:w-1/3 md:w-full lg:flex justify-center">
-                      <a href="tel:+919830566248">
-                        <span className="font-[700] pr-[3px]">
-                        IN: 
-                        </span>
-                         +91 9830 566 248</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="flex flex-col md:flex-row-reverse gap-[18px]">
+              {/* Form first in the DOM (heading + tab order), shown on the right via md:flex-row-reverse */}
               {/* Right side - Form */}
               <div className="lg:w-[40%] md:w-[50%] w-full ">
                 <div className="md:hidden">
                   <div className="bg-[#00855D] text-primary-white">
-                    <h3 className="modal-title title md:p-4 p-2 ">
+                    <p className="modal-title title md:p-4 p-2 ">
                       Get Your Business Online Today <br />
                       With <span className="font-bold text-primary-white">Bitpastel</span>
-                    </h3>
+                    </p>
                   </div>
                 </div>
 
@@ -686,9 +594,9 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                     </>
                   ) : (
                     <>
-                      <h2 className="text-center text-[36px] font-source leading-[37px] tracking-[-1%] md:mb-4 mb-3 font-[400] text-[#123B42] " id="quote-title">
+                      <h1 className="text-center text-[36px] font-source leading-[37px] tracking-[-1%] md:mb-4 mb-3 font-[400] text-[#123B42] " id="quote-title">
                         Get a Free Quote
-                      </h2>
+                      </h1>
                       <form
                         noValidate
                         onSubmit={handleSubmit}
@@ -764,6 +672,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                               ref={fullNameRef}
                               id="quote-name"
                               name="fullName"
+                              aria-label="Full Name"
                               autoComplete="name"
                               required
                               aria-required="true"
@@ -789,6 +698,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                               ref={emailRef}
                               id="quote-email"
                               name="email"
+                              aria-label="Email"
                               autoComplete="email"
                               required
                               aria-required="true"
@@ -938,6 +848,103 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                   <p className="text-[#007A7A] text-[14px] w-full lg:w-1/3 md:w-full lg:flex justify-center">
                     <a href="tel:+919830566248">IN: +91 9830 566 248</a>
                   </p>
+                </div>
+              </div>
+              {/* Left side - Image and details */}
+              <div className="lg:w-[60%] md:w-[50%] md:flex md:flex-col hidden">
+                <div className="mb-[53px]">
+                  <Image
+                    src={ContactUs}
+                    alt="Get your business online today with Bitpastel: a team celebrating in an office"
+                    className="w-full h-auto object-cover "
+                  />
+                </div>
+                <div className="mt-auto">
+                  <h2 className="text-[32px] text-center md:mb-[20px] font-[600] leading-[36px] tracking-[-1px] mb-6 text-title font-source">
+                    Satisfied Client Worldwide
+                  </h2>
+
+                  <div className="grid lg:grid-cols-4 md:grid-cols-2 md:gap-[10px] ">
+                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#0D9EBF4D] shadow-[0.47px_0.95px_8.54px_0px_#00000014]">
+                      <Image
+                        src="/images/modal-stat-clients.svg"
+                        alt=""
+                        aria-hidden="true"
+                        width={30}
+                        height={30}
+                        className="mx-auto mb-[15px] h-[30px]"
+                      />
+                      <p className="text-[20px] text-[#222B32] font-roboto font-bold leading-[16px]">900</p>
+                      <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Clients</p>
+                    </div>
+
+                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#B48D0E4D] shadow-[0.47px_0.95px_8.54px_0px_#00000014]">
+                      <Image
+                        src="/images/modal-stat-projects.svg"
+                        alt=""
+                        aria-hidden="true"
+                        width={30}
+                        height={30}
+                        className="mx-auto mb-[15px] h-[30px]"
+                      />
+                      <p className="text-[20px] text-[#222B32] font-roboto font-bold leading-[16px]">1400+</p>
+                      <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Projects</p>
+                    </div>
+
+                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#F245534D] shadow-[0.47px_0.95px_8.54px_0px_#00000014]">
+                      <Image
+                        src="/images/modal-stat-code.svg"
+                        alt=""
+                        aria-hidden="true"
+                        width={30}
+                        height={30}
+                        className="mx-auto mb-[15px] h-[30px]"
+                      />
+                      <p className="text-[20px] text-[#222B32] font-roboto font-bold leading-[16px]">50M</p>
+                      <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Lines of Code</p>
+                    </div>
+
+                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#29996A4D] shadow-[0.47px_0.95px_8.54px_0px_#00000014]">
+                      <Image
+                        src="/images/modal-stat-countries.svg"
+                        alt=""
+                        aria-hidden="true"
+                        width={30}
+                        height={30}
+                        className="mx-auto mb-[15px] h-[30px]"
+                      />
+                      <p className="text-[20px] text-[#222B32] font-roboto font-bold leading-[16px]">35</p>
+                      <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Countries</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap justify-center lg:gap-0 gap-4 pt-6 text-center lg:mr-[-17px]">
+                    <p className="text-[#123B42] text-[17px] leading-[18px] font-[600] font-source border-right w-full lg:w-1/3 md:w-full lg:flex justify-center mb-2 lg:mb-0">
+                      <a href="tel:+18724446679">
+                        <span className="font-[700] pr-[3px]">
+                        US: 
+                        </span>
+                         +1 (872) 444 6679</a>
+                    </p>
+                    <p className="text-[#123B42] text-[17px] leading-[18px] font-[600] font-source border-right w-full md:w-full lg:w-1/3 flex justify-center mb-2 lg:mb-0">
+                      {/* <a target='_blank' href="https://api.whatsapp.com/send/?phone=442081446579&text=Hey...+I+would+like+to+have+a+quick+chat+with+you.&type=phone_number&app_absent=0">UK: +44 2081 446579</a> */}
+                      {/* <a target='_blank' href="https://api.whatsapp.com/send/?phone=447469539191&text=Hey...+I+would+like+to+have+a+quick+chat+with+you.&type=phone_number&app_absent=0">UK: +44 7469 539191</a> */}
+                      <a href="tel:+447469539191">
+                        <span className="font-[700] pr-[3px]">
+                        UK: 
+                        </span>
+                        +44 7469 539191</a>
+                    </p>
+
+                    
+
+                    <p className="text-[#123B42] text-[17px] leading-[18px] font-[600] font-source w-full lg:w-1/3 md:w-full lg:flex justify-center">
+                      <a href="tel:+919830566248">
+                        <span className="font-[700] pr-[3px]">
+                        IN: 
+                        </span>
+                         +91 9830 566 248</a>
+                    </p>
+                  </div>
                 </div>
               </div>
               <div className="md-hidden absolute top-[10px] right-[10px]">
