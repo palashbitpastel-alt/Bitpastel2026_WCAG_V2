@@ -178,7 +178,7 @@ const FloatingFooter = () => {
 
         {/* Culture */}
         <div className="nav-item flex flex-col items-center">
-          <Link href="#" /* original href: "/culture" */ className="flex flex-col items-center">
+          <Link href="/culture" className="flex flex-col items-center">
             <Image src={navIcon('culture', 'culture')} alt="" aria-hidden="true" width={22} height={22} className="h-[22px] w-[22px]" />
             <span className={textCls('culture')}>Culture</span>
           </Link>

@@ -263,7 +263,8 @@ const renderCarouselSection = (
   >
     <div className="relative">
       <InstagramCarousel
-        items={items}
+        // Each photo's alt names its event and position, so it is unique and correct (WCAG 1.1.1)
+        items={items.map((item, i) => ({ ...item, alt: `${title}, photo ${i + 1} of ${items.length}` }))}
         autoPlay={activeCarousel === id}
         showDots
         showArrows={false}
@@ -273,7 +274,8 @@ const renderCarouselSection = (
 
     <div className="px-8">
       <h2 className="text-[16px] font-[700]">{title}</h2>
-      <p className="text-[12px] text-white">{subtitle}</p>
+      {/* #6B7280 = 4.83:1 on white; text-white maps to #b2b2b2 (2.12:1) in this theme */}
+      <p className="text-[12px] text-[#6B7280]">{subtitle}</p>
     </div>
   </motion.div>
 );

@@ -506,7 +506,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       <li>
                         <Link
                           prefetch={true}
-                          href="#" /* original href: "/culture" */
+                          href="/culture"
                           onClick={(e) => {
                             if (pathname === '/culture') {
                               e.preventDefault();
@@ -625,7 +625,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                     <li className="block text-[13px]">
                       <Link
                         prefetch={true}
-                        href="#" /* original href: "/culture" */
+                        href="/culture"
                         onClick={(e) => {
                           if (pathname === '/culture') {
                             e.preventDefault();
@@ -888,7 +888,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
             >
               <Link
                 prefetch={true}
-                href="#" /* original href: "/culture" */
+                href="/culture"
                 onClick={(e) => {
                   if (pathname === '/culture') {
                     e.preventDefault();

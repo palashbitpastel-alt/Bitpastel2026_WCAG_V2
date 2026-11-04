@@ -214,12 +214,12 @@ const TeamCollageNew = () => {
     <section className='team-members'>
       <div className='container mx-auto px-4'>
         <div className='team-college'>
-          <h2 className='text-[20px] font-[700] pb-4 pt-4'>Bitpastel Offsite 2026</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4 pt-4'>Bitpastel Offsite 2026</h2>
 
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={Picnic1}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 1 of 13"
               width={1200}
               height={600}
               quality={100}
@@ -229,14 +229,14 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={Picnic2}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 2 of 13"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
             />
             <Image
               src={Picnic3}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 3 of 13"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -245,7 +245,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={Picnic4}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 4 of 13"
               width={1200}
               height={600}
               quality={100}
@@ -255,14 +255,14 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={Picnic5}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 5 of 13"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
             />
             <Image
               src={Picnic6}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 6 of 13"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -271,7 +271,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={Picnic7}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 7 of 13"
               width={1200}
               height={600}
               quality={100}
@@ -281,14 +281,14 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={Picnic8}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 8 of 13"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
             />
             <Image
               src={Picnic9}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 9 of 13"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -297,7 +297,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={Picnic10}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 10 of 13"
               width={1200}
               height={600}
               quality={100}
@@ -307,14 +307,14 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={Picnic11}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 11 of 13"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
             />
             <Image
               src={Picnic12}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 12 of 13"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -323,7 +323,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={Picnic13}
-              alt='TownHall 2026'
+              alt="Bitpastel Offsite 2026, photo 13 of 13"
               width={1200}
               height={600}
               quality={100}
@@ -333,11 +333,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Bitpastel Townhall 2026</h2>
+          <h2 className='text-[20px]  font-[700] pb-4'>Bitpastel Townhall 2026</h2>
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TH111}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 1 of 19"
               width={1200}
               height={600}
               quality={100}
@@ -347,14 +347,14 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TH2}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 2 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
             />
             <Image
               src={TH3}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 3 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -363,14 +363,14 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TH4}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 4 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
             />
             <Image
               src={TH5}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 5 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -379,7 +379,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TH6}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 6 of 19"
               width={1200} // REPLACE with actual intrinsic width
               height={600} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -388,14 +388,14 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TH7}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 7 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
             />
             <Image
               src={TH8}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 8 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -404,14 +404,14 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TH9}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 9 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
             />
             <Image
               src={TH10}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 10 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -420,7 +420,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TH11}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 11 of 19"
               width={1200} // REPLACE with actual intrinsic width
               height={600} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -429,14 +429,14 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TH12}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 12 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
             />
             <Image
               src={TH13}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 13 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -445,7 +445,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TH14}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 14 of 19"
               width={1200} // REPLACE with actual intrinsic width
               height={600} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -454,14 +454,14 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TH15}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 15 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
             />
             <Image
               src={TH16}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 16 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -470,14 +470,14 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TH17}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 17 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
             />
             <Image
               src={TH18}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 18 of 19"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -486,7 +486,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TH19}
-              alt='TownHall 2026'
+              alt="Bitpastel Townhall 2026, photo 19 of 19"
               width={1200} // REPLACE with actual intrinsic width
               height={600} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -495,11 +495,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Christmas Celebration at Office 2025</h2>
+          <h2 className='text-[20px]  font-[700] pb-4'>Christmas Celebration at Office 2025</h2>
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={X_max_1}
-              alt='Independence Day Celebration with team members 2025'
+              alt="Christmas Celebration at Office 2025, photo 1 of 4"
               width={1200} // REPLACE with actual intrinsic width
               height={900} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -509,14 +509,14 @@ const TeamCollageNew = () => {
             {/* IMPORTANT: Replace width and height with the actual intrinsic dimensions of your images */}
             <Image
               src={X_max_2}
-              alt='Independence Day Celebration with team members 2025'
+              alt="Christmas Celebration at Office 2025, photo 2 of 4"
               width={1200} // REPLACE with actual intrinsic width of this image
               height={900} // REPLACE with actual intrinsic height of this image
               className='w-full object-cover' // w-full makes it responsive, object-cover maintains aspect ratio
             />
             <Image
               src={X_max_3}
-              alt='Independence Day Celebration with team members 2025'
+              alt="Christmas Celebration at Office 2025, photo 3 of 4"
               width={1200} // REPLACE with actual intrinsic width
               height={900} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -525,7 +525,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1'>
             <Image
               src={X_max_4}
-              alt='Independence Day Celebration with team members 2025'
+              alt="Christmas Celebration at Office 2025, photo 4 of 4"
               width={1200} // REPLACE with actual intrinsic width
               height={900} // REPLACE with actual intrinsic height
               quality={100}
@@ -535,12 +535,12 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Ethnic Day Celebration at Office 2025</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Ethnic Day Celebration at Office 2025</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             {/* IMPORTANT: Replace width and height with the actual intrinsic dimensions of your images */}
             <Image
               src={EthnicDay2025_1}
-              alt='Ethnic Day Celebration with team members 2025'
+              alt="Ethnic Day Celebration at Office 2025, photo 1 of 2"
               width={1200} // REPLACE with actual intrinsic width of this image
               height={900} // REPLACE with actual intrinsic height of this image
               quality={100} // Set image quality to 100%
@@ -548,7 +548,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={EthnicDay2025_2}
-              alt='Ethnic Day Celebration with team members 2025'
+              alt="Ethnic Day Celebration at Office 2025, photo 2 of 2"
               width={1200} // REPLACE with actual intrinsic width
               height={900} // REPLACE with actual intrinsic height
               quality={100}
@@ -558,12 +558,12 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Independence Day 2025</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Independence Day 2025</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             {/* IMPORTANT: Replace width and height with the actual intrinsic dimensions of your images */}
             <Image
               src={IndependenceDay2025_1}
-              alt='Independence Day Celebration with team members 2025'
+              alt="Independence Day 2025, photo 1 of 3"
               width={1200} // REPLACE with actual intrinsic width of this image
               height={900} // REPLACE with actual intrinsic height of this image
               quality={100} // Set image quality to 100%
@@ -571,7 +571,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={IndependenceDay2025_2}
-              alt='Independence Day Celebration with team members 2025'
+              alt="Independence Day 2025, photo 2 of 3"
               width={1200} // REPLACE with actual intrinsic width
               height={900} // REPLACE with actual intrinsic height
               quality={100}
@@ -581,7 +581,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1'>
             <Image
               src={IndependenceDay2025_3}
-              alt='Independence Day Celebration with team members 2025'
+              alt="Independence Day 2025, photo 3 of 3"
               width={1200} // REPLACE with actual intrinsic width
               height={900} // REPLACE with actual intrinsic height
               quality={100}
@@ -591,12 +591,12 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Escape Rooms</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Escape Rooms</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             {/* IMPORTANT: Replace width and height with the actual intrinsic dimensions of your images */}
             <Image
               src={Escape1}
-              alt='escape room with team members'
+              alt="Escape Rooms, photo 1 of 4"
               width={1200} // REPLACE with actual intrinsic width of this image
               height={900} // REPLACE with actual intrinsic height of this image
               quality={100} // Set image quality to 100%
@@ -604,7 +604,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={Escape2}
-              alt='escape room with team members'
+              alt="Escape Rooms, photo 2 of 4"
               width={1200} // REPLACE with actual intrinsic width
               height={900} // REPLACE with actual intrinsic height
               quality={100}
@@ -612,7 +612,7 @@ const TeamCollageNew = () => {
             />
             {/* <Image
               src={Escape3}
-              alt="escape room with team members"
+              alt="Escape Rooms, photo 3 of 4"
               width={1200} // REPLACE with actual intrinsic width
               height={900} // REPLACE with actual intrinsic height
               quality={100}
@@ -620,7 +620,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={Escape4}
-              alt="escape room with team members"
+              alt="Escape Rooms, photo 4 of 4"
               width={1200} // REPLACE with actual intrinsic width
               height={900} // REPLACE with actual intrinsic height
               quality={100}
@@ -630,11 +630,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Interactive Team Mission</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Interactive Team Mission</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <Image
               src={TeamMission1}
-              alt='Jenga Puzzle Playing team members'
+              alt="Interactive Team Mission, photo 1 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -642,7 +642,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TeamMission2}
-              alt='Jenga Puzzle Playing team members'
+              alt="Interactive Team Mission, photo 2 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -650,7 +650,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TeamMission3}
-              alt='Jenga Puzzle Playing team members'
+              alt="Interactive Team Mission, photo 3 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -658,7 +658,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TeamMission4}
-              alt='Jenga Puzzle Playing team members'
+              alt="Interactive Team Mission, photo 4 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -668,11 +668,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Birthday Celebration 2025</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Birthday Celebration 2025</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <Image
               src={BirthdayCelebration2025_1}
-              alt='Birthday Celebration at Office with team members'
+              alt="Birthday Celebration 2025, photo 1 of 6"
               width={1200}
               height={900}
               quality={100}
@@ -680,7 +680,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={BirthdayCelebration2025_2}
-              alt='Birthday Celebration at Office with team members'
+              alt="Birthday Celebration 2025, photo 2 of 6"
               width={1200}
               height={900}
               quality={100}
@@ -688,7 +688,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={BirthdayCelebration2025_3}
-              alt='Birthday Celebration at Office with team members'
+              alt="Birthday Celebration 2025, photo 3 of 6"
               width={1200}
               height={900}
               quality={100}
@@ -696,7 +696,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={BirthdayCelebration2025_4}
-              alt='Birthday Celebration at Office with team members'
+              alt="Birthday Celebration 2025, photo 4 of 6"
               width={1200}
               height={900}
               quality={100}
@@ -704,7 +704,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={BirthdayCelebration2025_5}
-              alt='Birthday Celebration at Office with team members'
+              alt="Birthday Celebration 2025, photo 5 of 6"
               width={1200}
               height={900}
               quality={100}
@@ -712,7 +712,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={BirthdayCelebration2025_6}
-              alt='Birthday Celebration at Office with team members'
+              alt="Birthday Celebration 2025, photo 6 of 6"
               width={1200}
               height={900}
               quality={100}
@@ -722,11 +722,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Bitpastel turns 8</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Bitpastel turns 8</h2>
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={EightYears1}
-              alt='Bitpastel Turns 8 year Celebration'
+              alt="Bitpastel turns 8, photo 1 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -736,7 +736,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={EightYears2}
-              alt='Bitpastel Turns 8 year Celebration'
+              alt="Bitpastel turns 8, photo 2 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -744,7 +744,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={EightYears3}
-              alt='Bitpastel Turns 8 year Celebration'
+              alt="Bitpastel turns 8, photo 3 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -754,7 +754,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1'>
             <Image
               src={EightYears4}
-              alt='Bitpastel Turns 8 year Celebration'
+              alt="Bitpastel turns 8, photo 4 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -763,11 +763,11 @@ const TeamCollageNew = () => {
           </div>
         </div>
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Ice Breaker - Coffee Evening</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Ice Breaker - Coffee Evening</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <Image
               src={IceBracker1}
-              alt='Ice Breaker - Coffee Evening team members'
+              alt="Ice Breaker - Coffee Evening, photo 1 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -775,7 +775,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={IceBracker2}
-              alt='Ice Breaker - Coffee Evening team members'
+              alt="Ice Breaker - Coffee Evening, photo 2 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -785,11 +785,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Christmas Celebration at Office 2024</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Christmas Celebration at Office 2024</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <Image
               src={Christmas1}
-              alt='Christmas Celebration at Office 2024 with team members'
+              alt="Christmas Celebration at Office 2024, photo 1 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -797,7 +797,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={Christmas2}
-              alt='Christmas Celebration at Office 2024 with team members'
+              alt="Christmas Celebration at Office 2024, photo 2 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -807,11 +807,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Ethnic Day Celebration at Office 2024</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Ethnic Day Celebration at Office 2024</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <Image
               src={EthnicDay2024_1}
-              alt='Ethnic Day Celebration at Office 2024 with team members'
+              alt="Ethnic Day Celebration at Office 2024, photo 1 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -819,7 +819,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={EthnicDay2024_2}
-              alt='Ethnic Day Celebration at Office 2024 with team members'
+              alt="Ethnic Day Celebration at Office 2024, photo 2 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -829,11 +829,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Birthday Day Celebration at Office</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Birthday Day Celebration at Office</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <Image
               src={BirthdayDay1}
-              alt='Birthday Celebration at Office with team members'
+              alt="Birthday Day Celebration at Office, photo 1 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -841,7 +841,7 @@ const TeamCollageNew = () => {
             />
             {/* <Image
               src={BirthdayDay2}
-              alt="Birthday Celebration at Office with team members"
+              alt="Birthday Day Celebration at Office, photo 2 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -849,7 +849,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={BirthdayDay3}
-              alt="Birthday Celebration at Office with team members"
+              alt="Birthday Day Celebration at Office, photo 3 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -857,7 +857,7 @@ const TeamCollageNew = () => {
             /> */}
             <Image
               src={BirthdayDay4}
-              alt='Birthday Celebration at Office with team members'
+              alt="Birthday Day Celebration at Office, photo 4 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -867,13 +867,13 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>
             Work Anniversary Celebration at Office 2024
           </h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <Image
               src={WorkAnniversary1}
-              alt='Work Anniversary Celebration at Office 2024 with team members'
+              alt="Work Anniversary Celebration at Office 2024, photo 1 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -881,7 +881,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={WorkAnniversary2}
-              alt='Work Anniversary Celebration at Office 2024 with team members'
+              alt="Work Anniversary Celebration at Office 2024, photo 2 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -889,7 +889,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={WorkAnniversary3}
-              alt='Work Anniversary Celebration at Office 2024 with team members'
+              alt="Work Anniversary Celebration at Office 2024, photo 3 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -897,7 +897,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={WorkAnniversary4}
-              alt='Work Anniversary Celebration at Office 2024 with team members'
+              alt="Work Anniversary Celebration at Office 2024, photo 4 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -907,11 +907,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Team Meetup #Movie #Coffee</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Team Meetup #Movie #Coffee</h2>
           <div className='grid grid-cols-1 md:grid-cols-1 gap-2'>
             <Image
               src={TeamMeetup1}
-              alt='Team Meetup #Movie #Coffee'
+              alt="Team Meetup #Movie #Coffee, photo 1 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -919,7 +919,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TeamMeetup2}
-              alt='Team Meetup #Movie #Coffee'
+              alt="Team Meetup #Movie #Coffee, photo 2 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -929,11 +929,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Bitpastel Townhall 2024</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Bitpastel Townhall 2024</h2>
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TownHall2024_1}
-              alt='Bitpastel Townhall 2024 cover'
+              alt="Bitpastel Townhall 2024, photo 1 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -943,7 +943,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TownHall2024_2}
-              alt='Bitpastel Townhall cake cutting with team members'
+              alt="Bitpastel Townhall 2024, photo 2 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -951,7 +951,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2024_3}
-              alt='Bitpastel Townhall 2024 CEO Speech'
+              alt="Bitpastel Townhall 2024, photo 3 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -961,7 +961,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TownHall2024_4}
-              alt='Bitpastel Townhall 2024 cover'
+              alt="Bitpastel Townhall 2024, photo 4 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -971,7 +971,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TownHall2024_5}
-              alt='Bitpastel Townhall cake cutting with team members'
+              alt="Bitpastel Townhall 2024, photo 5 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -979,7 +979,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2024_6}
-              alt='Bitpastel Townhall 2024 CEO Speech'
+              alt="Bitpastel Townhall 2024, photo 6 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -989,7 +989,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TownHall2024_7}
-              alt='Bitpastel Townhall 2024 cover'
+              alt="Bitpastel Townhall 2024, photo 7 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -999,7 +999,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TownHall2024_8}
-              alt='Bitpastel Townhall cake cutting with team members'
+              alt="Bitpastel Townhall 2024, photo 8 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -1007,7 +1007,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2024_9}
-              alt='Bitpastel Townhall 2024 CEO Speech'
+              alt="Bitpastel Townhall 2024, photo 9 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -1017,7 +1017,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TownHall2024_10}
-              alt='Bitpastel Townhall 2024 cover'
+              alt="Bitpastel Townhall 2024, photo 10 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -1027,7 +1027,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TownHall2024_11}
-              alt='Bitpastel Townhall cake cutting with team members'
+              alt="Bitpastel Townhall 2024, photo 11 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -1035,7 +1035,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2024_12}
-              alt='Bitpastel Townhall 2024 CEO Speech'
+              alt="Bitpastel Townhall 2024, photo 12 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -1043,7 +1043,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2024_13}
-              alt='Bitpastel Townhall 2024 cover'
+              alt="Bitpastel Townhall 2024, photo 13 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -1051,7 +1051,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2024_14}
-              alt='Bitpastel Townhall cake cutting with team members'
+              alt="Bitpastel Townhall 2024, photo 14 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -1061,7 +1061,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TownHall2024_15}
-              alt='Bitpastel Townhall 2024 CEO Speech'
+              alt="Bitpastel Townhall 2024, photo 15 of 15"
               width={1200}
               height={900}
               quality={100}
@@ -1071,11 +1071,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Bitpastel Townhall 2023</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Bitpastel Townhall 2023</h2>
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TownHall2023_1}
-              alt='Bitpastel Townhall 2023 cover'
+              alt="Bitpastel Townhall 2023, photo 1 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1085,7 +1085,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TownHall2023_2}
-              alt='Bitpastel Townhall cake cutting with team members'
+              alt="Bitpastel Townhall 2023, photo 2 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1093,7 +1093,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2023_3}
-              alt='Bitpastel Townhall 2024 CEO Speech'
+              alt="Bitpastel Townhall 2023, photo 3 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1103,7 +1103,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TownHall2023_4}
-              alt='Bitpastel Townhall 2024 cover'
+              alt="Bitpastel Townhall 2023, photo 4 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1113,7 +1113,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TownHall2023_5}
-              alt='Bitpastel Townhall cake cutting with team members'
+              alt="Bitpastel Townhall 2023, photo 5 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1121,7 +1121,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2023_6}
-              alt='Bitpastel Townhall 2024 CEO Speech'
+              alt="Bitpastel Townhall 2023, photo 6 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1131,7 +1131,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TownHall2023_7}
-              alt='Bitpastel Townhall 2024 cover'
+              alt="Bitpastel Townhall 2023, photo 7 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1141,7 +1141,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TownHall2023_8}
-              alt='Bitpastel Townhall cake cutting with team members'
+              alt="Bitpastel Townhall 2023, photo 8 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1149,7 +1149,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2023_9}
-              alt='Bitpastel Townhall 2024 CEO Speech'
+              alt="Bitpastel Townhall 2023, photo 9 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1157,7 +1157,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2023_10}
-              alt='Bitpastel Townhall 2024 cover'
+              alt="Bitpastel Townhall 2023, photo 10 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1165,7 +1165,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2023_11}
-              alt='Bitpastel Townhall cake cutting with team members'
+              alt="Bitpastel Townhall 2023, photo 11 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1175,7 +1175,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 mb-2'>
             <Image
               src={TownHall2023_12}
-              alt='Bitpastel Townhall 2024 CEO Speech'
+              alt="Bitpastel Townhall 2023, photo 12 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1185,7 +1185,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TownHall2023_13}
-              alt='Bitpastel Townhall 2024 cover'
+              alt="Bitpastel Townhall 2023, photo 13 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1193,7 +1193,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2023_14}
-              alt='Bitpastel Townhall cake cutting with team members'
+              alt="Bitpastel Townhall 2023, photo 14 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1201,7 +1201,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2023_15}
-              alt='Bitpastel Townhall 2024 CEO Speech'
+              alt="Bitpastel Townhall 2023, photo 15 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1209,7 +1209,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2023_16}
-              alt='Bitpastel Townhall 2024 CEO Speech'
+              alt="Bitpastel Townhall 2023, photo 16 of 16"
               width={1200}
               height={900}
               quality={100}
@@ -1219,11 +1219,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Culture at Bitpastel</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Culture at Bitpastel</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <Image
               src={Culture1}
-              alt='Bitpastel Townhall 2023 cover'
+              alt="Culture at Bitpastel, photo 1 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -1231,7 +1231,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={Culture2}
-              alt='Bitpastel Townhall 2023 cover'
+              alt="Culture at Bitpastel, photo 2 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -1241,11 +1241,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Year-end Celebration 2022</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Year-end Celebration 2022</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={YearEnd2022_1}
-              alt='Year-end Celebration 2022 with team members'
+              alt="Year-end Celebration 2022, photo 1 of 5"
               width={1200}
               height={900}
               quality={100}
@@ -1253,7 +1253,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={YearEnd2022_2}
-              alt='Year-end Celebration 2022 with team members'
+              alt="Year-end Celebration 2022, photo 2 of 5"
               width={1200}
               height={900}
               quality={100}
@@ -1263,7 +1263,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-1 gap-2 mb-2'>
             <Image
               src={YearEnd2022_3}
-              alt='Year-end Celebration 2022 with team members'
+              alt="Year-end Celebration 2022, photo 3 of 5"
               width={1200}
               height={900}
               quality={100}
@@ -1273,7 +1273,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <Image
               src={YearEnd2022_4}
-              alt='Year-end Celebration 2022 with team members'
+              alt="Year-end Celebration 2022, photo 4 of 5"
               width={1200}
               height={900}
               quality={100}
@@ -1282,7 +1282,7 @@ const TeamCollageNew = () => {
 
             <Image
               src={YearEnd2022_5}
-              alt='Year-end Celebration 2022 with team members'
+              alt="Year-end Celebration 2022, photo 5 of 5"
               width={1200}
               height={900}
               quality={100}
@@ -1292,11 +1292,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Sunday Brunch at Westin</h2>
+          <h2 className='text-[20px]  font-[700] pb-4'>Sunday Brunch at Westin</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <Image
               src={Westin1}
-              alt='Sunday Brunch at Westin with team members'
+              alt="Sunday Brunch at Westin, photo 1 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -1304,7 +1304,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={Westin2}
-              alt='Sunday Brunch at Westin with team members'
+              alt="Sunday Brunch at Westin, photo 2 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -1313,11 +1313,11 @@ const TeamCollageNew = () => {
           </div>
         </div>
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Bitpastel Townhall 2022</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Bitpastel Townhall 2022</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <Image
               src={TownHall2022_1}
-              alt='Bitpastel Townhall 2022 with team members'
+              alt="Bitpastel Townhall 2022, photo 1 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -1325,7 +1325,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2022_2}
-              alt='Bitpastel Townhall 2022 with team members'
+              alt="Bitpastel Townhall 2022, photo 2 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -1333,7 +1333,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2022_3}
-              alt='Bitpastel Townhall 2022 with team members'
+              alt="Bitpastel Townhall 2022, photo 3 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -1341,7 +1341,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2022_4}
-              alt='Bitpastel Townhall 2022 with team members'
+              alt="Bitpastel Townhall 2022, photo 4 of 4"
               width={1200}
               height={900}
               quality={100}
@@ -1351,11 +1351,11 @@ const TeamCollageNew = () => {
         </div>
 
         <div className='team-collage'>
-          <h2 className='text-[20px] font-[700] pb-4'>Bitpastel Townhall 2021</h2>
+          <h2 className='text-[20px] text-[#123B42] font-[700] pb-4'>Bitpastel Townhall 2021</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <Image
               src={TownHall2021_1}
-              alt='Bitpastel Townhall 2021 with team members'
+              alt="Bitpastel Townhall 2021, photo 1 of 2"
               width={1200}
               height={900}
               quality={100}
@@ -1363,7 +1363,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2021_2}
-              alt='Bitpastel Townhall 2021 with team members'
+              alt="Bitpastel Townhall 2021, photo 2 of 2"
               width={1200}
               height={900}
               quality={100}

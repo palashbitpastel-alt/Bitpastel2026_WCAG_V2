@@ -948,19 +948,25 @@ const CarouselDots = ({ total, current, onDotClick, maxVisible = 5, className }:
     }
 
     return (
-      <div className={cn("flex items-center justify-center gap-1.5 py-4 h-[20px]", className)}>
+      <div className={cn("flex items-center justify-center py-4 h-[20px]", className)}>
         {Array.from({ length: total }, (_, index) => (
           <button
             key={index}
             onClick={() => onDotClick(index)}
-            className={cn(
-              "rounded-full transition-all duration-200",
-              getDotSize(index),
-              getDotOpacity(index),
-              current === index ? "bg-[#00a974]" : "bg-[#DDDDDD] hover:bg-[#00a974]",
-            )}
+            className="group flex items-center justify-center w-6 h-6"
             aria-label={`Go to slide ${index + 1}`}
-          />
+            aria-current={current === index ? "true" : undefined}
+          >
+            <span
+              aria-hidden="true"
+              className={cn(
+                "block rounded-full transition-all duration-200",
+                getDotSize(index),
+                getDotOpacity(index),
+                current === index ? "bg-[#00a974]" : "bg-[#DDDDDD] group-hover:bg-[#00a974]",
+              )}
+            />
+          </button>
         ))}
       </div>
     )
@@ -996,19 +1002,25 @@ const CarouselDots = ({ total, current, onDotClick, maxVisible = 5, className }:
   }
 
   return (
-    <div className={cn("flex items-center justify-center gap-1.5 py-4 h-[20px]", className)}>
+    <div className={cn("flex items-center justify-center py-4 h-[20px]", className)}>
       {visibleIndices.map((actualIndex, visibleIndex) => (
         <button
           key={actualIndex}
           onClick={() => onDotClick(actualIndex)}
-          className={cn(
-            "rounded-full transition-all duration-200",
-            getDotSize(visibleIndex),
-            getDotOpacity(visibleIndex),
-            current === actualIndex ? "bg-[#00a974]" : "bg-[#DDDDDD] hover:bg-[#00a974]",
-          )}
+          className="group flex items-center justify-center w-6 h-6"
           aria-label={`Go to slide ${actualIndex + 1}`}
-        />
+          aria-current={current === actualIndex ? "true" : undefined}
+        >
+          <span
+            aria-hidden="true"
+            className={cn(
+              "block rounded-full transition-all duration-200",
+              getDotSize(visibleIndex),
+              getDotOpacity(visibleIndex),
+              current === actualIndex ? "bg-[#00a974]" : "bg-[#DDDDDD] group-hover:bg-[#00a974]",
+            )}
+          />
+        </button>
       ))}
     </div>
   )

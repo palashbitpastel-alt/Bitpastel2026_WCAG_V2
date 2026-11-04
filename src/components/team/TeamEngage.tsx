@@ -21,7 +21,8 @@ const TeamEngage = () => {
 
  const handleFindOpportunities = () => {
     // Navigate to careers page with a query parameter
-    router.push('/careers/#jobCards');
+    // Home-page-only showcase: navigation disabled
+    // router.push('/careers/#jobCards');
   };
 
   return (
@@ -31,7 +32,7 @@ const TeamEngage = () => {
           <div className="rounded-tr-[40px] rounded-br-[40px] overflow-hidden lg:mr-0 md:mr-4 mr-4 min-h-[15rem] md:min-h-[auto]">
             <Image
               src={TeamBanner}
-              alt="Team collaboration"
+              alt="The Bitpastel team posing for a group photo at Bitpastel Townhall 2026"
               width={711}
               height={406}
               className="w-full"
@@ -39,27 +40,27 @@ const TeamEngage = () => {
             />
           </div>
           <div className="lg:ml-0 md:ml-4 ml-4 bg-primary-mint lg:pl-[80px] md:pl-[60px] md:pr-[40px] py-8 px-8 rounded-tl-[40px] rounded-bl-[40px] content-center overflow-hidden">
-            <h2 className="md:leading-[40px] leading-[normal] font-source md:font-[600] font-bold title title text-title md:mb-[20px] mb-4">
+            <h2 className="md:mb-[20px] mb-4 text-[#123B42] md:font-[600] font-[700] font-source md:text-[38px] text-[23px] :leading-[45px] leading-[normal]">
               Work on awesome Ideas &
               <br />
               Technologies
             </h2>
             <div className='max-w-[500px]'>
-              <p className="md:leading-[30px] leading-[20px] text-title">
+              <p className="md:leading-[28.5px] text-[18px] leading-[28.5px] text-[#222B32]">
                 At Bitpastel, we create with curiosity. We continue to go forward with an inclusive
                 view for creating equal opportunities for all our employees.
-              </p>
-              <p className="md:leading-[30px] leading-[30px] text-title">
-                Visit our <Link className="inline-block underline text-[#009999]" 
+              <span className="block">
+                Visit our <Link className="inline-block underline text-[#00855D]" 
                 
-                 href="/careers"
+                href="#" /* original href: "/careers" */
                 // onClick={(e) => handleNavigation("/careers", e)}
                 
                 >Careers</Link> page to find out about
                 open positions.
+                </span>
               </p>
               <button 
-                className="new-btn-design-full mt-6" 
+                className="new-btn-design-full mt-6 md:min-w-[230px]" 
                onClick={handleFindOpportunities}
               >
                 Find Opportunities

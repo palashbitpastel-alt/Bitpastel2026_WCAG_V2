@@ -241,8 +241,7 @@ const Header = ({ forceModalOpen = false, onModalClose }: HomePageProps) => {
         window.scrollTo({ top: 0, behavior: "smooth" })
       } else {
         // Direct navigation without additional logic
-        // Home-page-only showcase: navigation disabled
-        // router.push("/culture")
+        router.push("/culture")
       }
     },
     [pathname, router],
@@ -384,7 +383,7 @@ const Header = ({ forceModalOpen = false, onModalClose }: HomePageProps) => {
                 <li>
                   <Link
                     prefetch={true}
-                    href="#" /* original href: "/culture" */
+                    href="/culture"
                     aria-current={pathname === "/culture" ? "page" : undefined}
                     onClick={handleCultureClick}
                     className={`nav-dark inline-flex items-center justify-center min-h-[44px] py-[10px] px-[10px] rounded-[4px] ${pathname === "/culture" ? "is-active" : ""} `}

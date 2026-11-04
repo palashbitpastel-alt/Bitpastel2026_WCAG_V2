@@ -16,6 +16,8 @@ import BonyImg from '../../../public/images/Testimonial Section/Images/Bony.webp
 interface Testimonial {
   id: number;
   name: string;
+  // Text shown inside the chat-bubble image, used as its alt text (WCAG 1.1.1)
+  quote: string;
   image: StaticImageData;
   testimonialDesk: string;
   testimonialMob: string;
@@ -27,6 +29,7 @@ const testimonials: Testimonial[] = [
   {
     id: 1,
     name: 'Shovan',
+    quote: '“Over 4 years at Bitpastel, I’ve grown through exciting challenges, learned a lot, led amazing projects, and worked with a talented team - all in a culture that truly supports and inspires excellence.” Shovan',
     image: ShovanImg,
     testimonialDesk: '/images/Testimonial Section/Chat boxes/Shovan Kar/left.webp',
     testimonialMob: '/images/Testimonial Section/Chat boxes mobile/Shovan Kar/left.webp',
@@ -45,6 +48,7 @@ const testimonials: Testimonial[] = [
   {
     id: 3,
     name: 'Ibrahim',
+    quote: '“The work culture is excellent, with huge opportunities for youngsters to grow. The people are highly supportive. I have worked here for the last 7 years - and this place has truly redefined my career.” Md Ibrahim',
     image: IbrahimImg,
     testimonialDesk: '/images/Testimonial Section/Chat boxes/Md Ibrahim/left.webp',
     testimonialMob: '/images/Testimonial Section/Chat boxes mobile/Md Ibrahim/left.webp',
@@ -54,6 +58,7 @@ const testimonials: Testimonial[] = [
   {
     id: 4,
     name: 'Sneha',
+    quote: '“Working at Bitpastel for the past 3 years has been truly rewarding. From day one, I was welcomed into a supportive, inclusive environment with approachable and transparent leadership that encourages growth.” Sneha Mondal',
     image: SnehaImg,
     testimonialDesk: '/images/Testimonial Section/Chat boxes/sneha mondal/left.webp',
     testimonialMob: '/images/Testimonial Section/Chat boxes mobile/sneha mondal/left.webp',
@@ -72,6 +77,7 @@ const testimonials: Testimonial[] = [
   {
     id: 6,
     name: 'Mousumi',
+    quote: "“Bitpastel offers a supportive, trust-driven culture where I’ve grown through meaningful projects and strong teamwork. The leadership is approachable, and there's a shared commitment to quality and innovation.” Mousumi Sengupta",
     image: MousumiImg,
     testimonialDesk: '/images/Testimonial Section/Chat boxes/Mousumi sengupta/left.webp',
     testimonialMob: '/images/Testimonial Section/Chat boxes mobile/Mousumi sengupta/left.webp',
@@ -81,6 +87,7 @@ const testimonials: Testimonial[] = [
   {
     id: 7,
     name: 'Bony',
+    quote: '“The leadership team encourages innovation and values every employee’s contribution, which makes a big difference. Bitpastel has truly shaped my professional career, and I’m proud to be part of a company that values excellence and teamwork.” Bony Malakar',
     image: BonyImg,
     testimonialDesk: '/images/Testimonial Section/Chat boxes/bony malakar/left.webp',
     testimonialMob: '/images/Testimonial Section/Chat boxes mobile/bony malakar/left.webp',
@@ -129,33 +136,31 @@ const container = {
 
 
 const TeamTestimonialNew = () => {
-  const getRandomIndices = () => {
-    const indices: number[] = [];
-    while (indices.length < 3) {
-      const rand = Math.floor(Math.random() * testimonials.length);
-      if (!indices.includes(rand)) indices.push(rand);
-    }
-    return indices;
-  };
-
-  const [currentIndices, setCurrentIndices] = useState<number[]>(getRandomIndices());
+  // Rotate through the list in order instead of picking at random: every 9s all
+  // three slots move on by 3, so nobody repeats straight away (in any slot) and
+  // everyone gets equal time. Starts at 0 for the server render, then jumps to a
+  // random start in the browser so each visit still opens on different people.
+  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
+    setOffset(Math.floor(Math.random() * testimonials.length));
     const interval = setInterval(() => {
-      setCurrentIndices(getRandomIndices());
+      setOffset((o) => (o + 3) % testimonials.length);
     }, 9000);
 
     return () => clearInterval(interval);
   }, []);
 
-  const [t1, t2, t3] = currentIndices.map(i => testimonials[i]);
+  const [t1, t2, t3] = [0, 1, 2].map((k) => testimonials[(offset + k) % testimonials.length]);
 
   return (
     <section className="md:pt-0 pt-[40px]">
       {/* <SnowfallAnimation /> */}
 
       {/* FIRST */}
-      <AnimatePresence>
+      {/* mode="wait": the old testimonial leaves before the new one mounts, so the
+          section never holds both at once and the page below doesn't jump */}
+      <AnimatePresence mode="wait">
       <motion.div
         key={t1.id}
         className="testimonial testimonial-first"
@@ -167,21 +172,21 @@ const TeamTestimonialNew = () => {
         <motion.div variants={fadeUp}>
           <Image
             src={t1.image}
-            alt={t1.name}
+            alt=""
             className="testimonial-person-image"
           />
         </motion.div>
 
         <motion.img
           src={t1.testimonialDesk}
-          alt={t1.name}
+          alt={t1.quote}
           className="testimonial-data md:block hidden"
           variants={fadeRight}
         />
 
         <motion.img
           src={t1.testimonialMob}
-          alt={t1.name}
+          alt={t1.quote}
           className="testimonial-data md:hidden block"
           variants={fadeRight}
         />
@@ -189,7 +194,9 @@ const TeamTestimonialNew = () => {
       </AnimatePresence>
 
       {/* SECOND */}
-      <AnimatePresence>
+      {/* mode="wait": the old testimonial leaves before the new one mounts, so the
+          section never holds both at once and the page below doesn't jump */}
+      <AnimatePresence mode="wait">
       <motion.div
         key={t2.id}
         className="testimonial testimonial-second"
@@ -200,21 +207,21 @@ const TeamTestimonialNew = () => {
       >
         <motion.img
           src={t2.image.src}
-          alt={t2.name}
+          alt=""
           className="testimonial-person-image"
           variants={fadeUp}
         />
 
         <motion.img
           src={t2.rightSideTestimonial}
-          alt={t2.name}
+          alt={t2.quote}
           className="testimonial-data md:block hidden"
           variants={fadeLeft}
         />
 
         <motion.img
           src={t2.rightSideTestimonialMob}
-          alt={t2.name}
+          alt={t2.quote}
           className="testimonial-data md:hidden block"
           variants={fadeLeft}
         />
@@ -222,7 +229,9 @@ const TeamTestimonialNew = () => {
       </AnimatePresence>
       
       {/* THIRD */}
-      <AnimatePresence>
+      {/* mode="wait": the old testimonial leaves before the new one mounts, so the
+          section never holds both at once and the page below doesn't jump */}
+      <AnimatePresence mode="wait">
       {/* THIRD */}
       <motion.div
         key={t3.id}
@@ -234,21 +243,21 @@ const TeamTestimonialNew = () => {
       >
         <motion.img
           src={t3.image.src}
-          alt={t3.name}
+          alt=""
           className="testimonial-person-image"
           variants={fadeUp}
         />
 
         <motion.img
           src={t3.testimonialDesk}
-          alt={t3.name}
+          alt={t3.quote}
           className="testimonial-data md:block hidden"
           variants={fadeRight}
         />
 
         <motion.img
           src={t3.testimonialMob}
-          alt={t3.name}
+          alt={t3.quote}
           className="testimonial-data md:hidden block"
           variants={fadeRight}
         />
