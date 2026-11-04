@@ -27,6 +27,8 @@ interface ContactModalProps {
 // Custom ChevronDown component
 const ChevronDown = ({ className }: { className?: string }) => (
   <svg
+    aria-hidden="true"
+    focusable="false"
     className={className}
     width="16"
     height="16"
@@ -137,7 +139,8 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
     }
   }, [open]);
 
-  // ESC-to-close + body-scroll lock + focus management while modal is open
+  // ESC-to-close + body-scroll lock + focus trap while modal is open
+  // (WCAG 2.4.3 Focus Order, 2.4.11 Focus Not Obscured: Tab never reaches the page behind)
   useEffect(() => {
     if (!open) return;
     const previouslyFocused = document.activeElement as HTMLElement | null;
@@ -146,22 +149,57 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         e.stopPropagation();
-        setIsModalOpen(false);
+        // Esc closes only the "I want" list when it is open, not the whole modal
+        if (serviceDropdownOpenRef.current) {
+          setIsServiceDropdownOpen(false);
+          serviceTriggerRef.current?.focus();
+        } else {
+          setIsModalOpen(false);
+        }
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const root = document.querySelector<HTMLElement>('[data-modal-root]');
+      if (!root) return;
+      const focusables = Array.from(
+        root.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => el.getClientRects().length > 0);
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (!active || !root.contains(active)) {
+        e.preventDefault();
+        (e.shiftKey ? last : first).focus();
+      } else if (e.shiftKey && active === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
       }
     };
     document.addEventListener('keydown', onKey);
-    // Focus the first input/select inside the modal on next paint
-    const focusTimer = window.setTimeout(() => {
-      const first = document.querySelector<HTMLElement>('[data-modal-root] input, [data-modal-root] select, [data-modal-root] textarea, [data-modal-root] button');
-      first?.focus();
-    }, 50);
     return () => {
       document.removeEventListener('keydown', onKey);
-      window.clearTimeout(focusTimer);
       document.body.style.overflow = prevOverflow;
       previouslyFocused?.focus?.();
     };
   }, [open, setIsModalOpen]);
+
+  // Move focus into the modal once the form is actually rendered (after country detection)
+  useEffect(() => {
+    if (!open || isLoading) return;
+    const focusTimer = window.setTimeout(() => {
+      const target =
+        serviceTriggerRef.current ??
+        document.querySelector<HTMLElement>('[data-modal-root] button, [data-modal-root] a[href]');
+      target?.focus();
+    }, 50);
+    return () => window.clearTimeout(focusTimer);
+  }, [open, isLoading]);
 
   const handleClose = () => {
     setIsModalOpen(false);
@@ -189,33 +227,102 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
   });
 
   const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false);
+  const serviceTriggerRef = useRef<HTMLButtonElement>(null);
+  const serviceOptionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const serviceDropdownOpenRef = useRef(false);
+  const fullNameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const [captchaError, setCaptchaError] = useState(false);
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
+  useEffect(() => {
+    serviceDropdownOpenRef.current = isServiceDropdownOpen;
+    if (!isServiceDropdownOpen) return;
+    // Focus the selected option (or the first one) when the list opens
+    const selected = services.indexOf(formData.service);
+    const idx = selected >= 0 ? selected : 0;
+    requestAnimationFrame(() => serviceOptionRefs.current[idx]?.focus());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isServiceDropdownOpen]);
+
+  const selectService = (service: string) => {
+    handleInputChange('service', service);
+    setIsServiceDropdownOpen(false);
+    setValidationErrors((prev) => ({ ...prev, service: false }));
+    // Keep keyboard focus on the trigger instead of dropping it to <body> (WCAG 2.4.3)
+    serviceTriggerRef.current?.focus();
+  };
+
+  const handleServiceTriggerKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      setIsServiceDropdownOpen(true);
+    }
+  };
+
+  const handleServiceListKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const current = serviceOptionRefs.current.findIndex((el) => el === document.activeElement);
+    const focusAt = (i: number) => serviceOptionRefs.current[(i + services.length) % services.length]?.focus();
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        focusAt(current + 1);
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        focusAt(current - 1);
+        break;
+      case 'Home':
+        e.preventDefault();
+        focusAt(0);
+        break;
+      case 'End':
+        e.preventDefault();
+        focusAt(services.length - 1);
+        break;
+      case 'Enter':
+      case ' ':
+        e.preventDefault();
+        if (current >= 0) selectService(services[current]);
+        break;
+      case 'Tab':
+        e.preventDefault();
+        setIsServiceDropdownOpen(false);
+        serviceTriggerRef.current?.focus();
+        break;
+    }
+  };
+
+  const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     setIsSubmitting(true);
 
-    // Basic validation
+    // Basic validation (WCAG 3.3.1 / 3.3.3: errors are shown, described and focused)
     const errors = {
       service: !formData.service,
-      fullName: !formData.fullName,
-      email: !formData.email,
+      fullName: !formData.fullName.trim(),
+      email: !isValidEmail(formData.email),
     };
 
     setValidationErrors(errors);
 
     if (Object.values(errors).some(Boolean)) {
       setIsSubmitting(false);
+      if (errors.service) serviceTriggerRef.current?.focus();
+      else if (errors.fullName) fullNameRef.current?.focus();
+      else emailRef.current?.focus();
       return;
     }
 
     if (!captchaToken) {
-      alert("Please verify that you're not a robot.");
+      setCaptchaError(true);
       setIsSubmitting(false);
       return;
     }
@@ -337,7 +444,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Contact form"
+      {...(isSuccess ? { 'aria-label': 'Free quote request sent' } : { 'aria-labelledby': 'quote-title' })}
       data-modal-root
       className={`fixed inset-0 z-50 flex items-center justify-center modal-overlay duration-500 ${isAnimating ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
         }`}
@@ -388,87 +495,98 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
           </div>
         )}
 
-        <div className="w-full md:rounded-lg shadow-xl overflow-hidden">
-          <div className="md:pt-[30px] md:px-[30px] md:pb-[35px]">
-            <div className="flex flex-col md:flex-row gap-6">
+        <div className="w-full md:rounded-[10px] shadow-xl overflow-hidden">
+          <div className="md:p-[30px]">
+            <div className="flex flex-col md:flex-row gap-[18px]">
               {/* Left side - Image and details */}
               <div className="lg:w-[60%] md:w-[50%] md:flex md:flex-col hidden">
-                <div className="mb-3">
+                <div className="mb-[53px]">
                   <Image
                     src={ContactUs}
                     alt="Get your business online today with Bitpastel: a team celebrating in an office"
                     className="w-full h-auto object-cover "
                   />
                 </div>
-
-                <div className="modal-details mt-auto">
-                  <h2 className="subheading font-bold md:mb-10 mb-6 text-title font-source">
+                <div className="mt-auto">
+                  <h2 className="text-[32px] text-center md:mb-[20px] font-[600] leading-[36px] tracking-[-1px] mb-6 text-title font-source">
                     Satisfied Client Worldwide
                   </h2>
 
-                  <div className="grid lg:grid-cols-4 md:grid-cols-2 md:gap-6 lg:px-[50px]">
-                    <div className="text-center">
+                  <div className="grid lg:grid-cols-4 md:grid-cols-2 md:gap-[10px] ">
+                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#0D9EBF4D]">
                       <Image
-                        src="/images/img_fasolidusers.svg"
+                        src="/images/modal-stat-clients.svg"
                         alt=""
                         width={30}
                         height={30}
-                        className="mx-auto mb-2 h-[30px]"
+                        className="mx-auto mb-[15px] h-[30px]"
                       />
-                      <h6 className="text-[#099]">900</h6>
-                      <p className="text-[#212529] text-[13px]">Clients</p>
+                      <p className="text-[20px] text-[#222B32] font-roboto font-bold leading-[16px]">900</p>
+                      <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Clients</p>
                     </div>
 
-                    <div className="text-center">
+                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#B48D0E4D]">
                       <Image
-                        src="/images/Bulb.svg"
+                        src="/images/modal-stat-projects.svg"
                         alt=""
                         width={30}
                         height={30}
-                        className="mx-auto mb-2 h-[30px]"
+                        className="mx-auto mb-[15px] h-[30px]"
                       />
-                      <h6 className="text-[#099]">1400+</h6>
-                      <p className="text-[#212529] text-[13px]">Projects</p>
+                      <p className="text-[20px] text-[#222B32] font-roboto font-bold leading-[16px]">1400+</p>
+                      <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Projects</p>
                     </div>
 
-                    <div className="text-center ">
+                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#F245534D]">
                       <Image
-                        src="/images/img_group.svg"
+                        src="/images/modal-stat-code.svg"
                         alt=""
                         width={30}
                         height={30}
-                        className="mx-auto mb-2 h-[30px]"
+                        className="mx-auto mb-[15px] h-[30px]"
                       />
-                      <h6 className="text-[#099]">50M</h6>
-                      <p className="text-[#212529] text-[13px]">Lines of Code</p>
+                      <p className="text-[20px] text-[#222B32] font-roboto font-bold leading-[16px]">50M</p>
+                      <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Lines of Code</p>
                     </div>
 
-                    <div className="text-center">
+                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#29996A4D]">
                       <Image
-                        src="/images/img_tdesignlocationfilled.svg"
+                        src="/images/modal-stat-countries.svg"
                         alt=""
                         width={30}
                         height={30}
-                        className="mx-auto mb-2 h-[30px]"
+                        className="mx-auto mb-[15px] h-[30px]"
                       />
-                      <h6 className="text-[#099]">35</h6>
-                      <p className="text-[#212529] text-[13px]">Countries</p>
+                      <p className="text-[20px] text-[#222B32] font-roboto font-bold leading-[16px]">35</p>
+                      <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Countries</p>
                     </div>
                   </div>
                   <div className="flex flex-wrap justify-center lg:gap-0 gap-4 pt-6 text-center lg:mr-[-17px]">
-                    <p className="text-[#099] border-right text-[14px] w-full lg:w-1/3 md:w-full lg:flex justify-center mb-2 lg:mb-0">
-                      <a href="tel:+18724446679">US: +1 (872) 444 6679</a>
+                    <p className="text-[#123B42] text-[17px] tracking-[-1px] leading-[18px] font-[600] font-source border-right w-full lg:w-1/3 md:w-full lg:flex justify-center mb-2 lg:mb-0">
+                      <a href="tel:+18724446679">
+                        <span className="font-[700] pr-[3px]">
+                        US: 
+                        </span>
+                         +1 (872) 444 6679</a>
                     </p>
-                    <p className="text-[#099] border-right text-[14px] w-full md:w-full lg:w-1/3 flex justify-center mb-2 lg:mb-0">
+                    <p className="text-[#123B42] text-[17px] tracking-[-1px] leading-[18px] font-[600] font-source border-right w-full md:w-full lg:w-1/3 flex justify-center mb-2 lg:mb-0">
                       {/* <a target='_blank' href="https://api.whatsapp.com/send/?phone=442081446579&text=Hey...+I+would+like+to+have+a+quick+chat+with+you.&type=phone_number&app_absent=0">UK: +44 2081 446579</a> */}
                       {/* <a target='_blank' href="https://api.whatsapp.com/send/?phone=447469539191&text=Hey...+I+would+like+to+have+a+quick+chat+with+you.&type=phone_number&app_absent=0">UK: +44 7469 539191</a> */}
-                      <a href="tel:+447469539191">UK: +44 7469 539191</a>
+                      <a href="tel:+447469539191">
+                        <span className="font-[700] pr-[3px]">
+                        UK: 
+                        </span>
+                        +44 7469 539191</a>
                     </p>
 
                     
 
-                    <p className="text-[#099] text-[14px] w-full lg:w-1/3 md:w-full lg:flex justify-center">
-                      <a href="tel:+919830566248">IN: +91 9830 566 248</a>
+                    <p className="text-[#123B42] text-[17px] tracking-[-1px] leading-[18px] font-[600] font-source w-full lg:w-1/3 md:w-full lg:flex justify-center">
+                      <a href="tel:+919830566248">
+                        <span className="font-[700] pr-[3px]">
+                        IN: 
+                        </span>
+                         +91 9830 566 248</a>
                     </p>
                   </div>
                 </div>
@@ -476,7 +594,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
               {/* Right side - Form */}
               <div className="lg:w-[40%] md:w-[50%] w-full ">
                 <div className="md:hidden">
-                  <div className="bg-[#3dcb90] text-primary-white">
+                  <div className="bg-[#00855D] text-primary-white">
                     <h3 className="modal-title title md:p-4 p-2 ">
                       Get Your Business Online Today <br />
                       With <span className="font-bold text-primary-white">Bitpastel</span>
@@ -485,7 +603,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                 </div>
 
                 {/* Form Section */}
-                <div className="bg-[#fff] md:p-[35px] py-[9px] px-[24px] md:p-[15px] md:shadow-[1px_-2px_20px_rgba(0,0,0,0.1),0_12px_24px_rgba(0,0,0,0.12)] modalform-area-mob">
+                <div className="bg-[#fff] md:p-[23px] rounded-[10px] py-[9px] px-[24px] md:shadow-[0px_1px_11.3px_0px_#00000070] modalform-area-mob flex flex-col h-[100%]">
                   {isSuccess ? (
                     <>
                       <div className="grid grid-cols-1 min-h-[450px] place-items-center justify-between">
@@ -568,28 +686,38 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                     </>
                   ) : (
                     <>
-                      <h2 className="text-center title font-source md:mb-4 mb-3 font-light text-title ">
+                      <h2 className="text-center text-[36px] font-source leading-[37px] tracking-[-1%] md:mb-4 mb-3 font-[400] text-[#123B42] " id="quote-title">
                         Get a Free Quote
                       </h2>
                       <form
+                        noValidate
                         onSubmit={handleSubmit}
-                        className="flex flex-col h-full justify-between"
+                        className="flex flex-col h-full"
                       >
-                        <div className="md:space-y-2">
-                          <div className="relative md:pb-1 border-b border-gray-200">
+                        <div className="h-full">
+                          <div className="relative md:py-1 border-b border-gray-200">
                             <button
+                              ref={serviceTriggerRef}
                               type="button"
+                              aria-haspopup="listbox"
+                              aria-expanded={isServiceDropdownOpen}
+                              aria-controls="quote-service-list"
+                              aria-labelledby="quote-service-label quote-service-value"
+                              aria-invalid={validationErrors.service || undefined}
+                              aria-describedby={validationErrors.service ? 'quote-service-error' : undefined}
                               onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
+                              onKeyDown={handleServiceTriggerKeyDown}
                               className={`w-full flex items-center focus:outline-none py-2 px-0 h-auto justify-start ${validationErrors.service ? 'text-red-500' : ''
                                 }`}
                             >
-                              <span className="text-[#212529] font-[100]">I want</span>
+                              <span id="quote-service-label" className="text-[#123B42] tex-[16px] font-[400] tracking-[-3%] leading-[28px]">I want<span className="sr-only"> (required)</span></span>
                               <span
-                                className={`ml-12 font-light ${validationErrors.service
+                                id="quote-service-value"
+                                className={`ml-12 text-[16px] tracking-[-3%] leading-[28px] ${formData.service ? 'font-[400]' : 'font-[100]'} ${validationErrors.service
                                   ? 'text-red-500'
                                   : formData.service
                                     ? 'text-[#212529]'
-                                    : 'text-[#B2B2B2]'
+                                    : 'text-[#6B7280]'
                                   }`}
                               >
                                 {formData.service || 'select*'}
@@ -601,70 +729,95 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                             </button>
 
                             {isServiceDropdownOpen && (
-                              <div className="absolute top-full left-0 right-0 mt-1 bg-[#ffffff] border border-gray-200 rounded-lg shadow-lg z-20 max-h-48 overflow-y-auto">
-                                {services.map((service) => (
-                                  <button
+                              <div
+                                id="quote-service-list"
+                                role="listbox"
+                                aria-labelledby="quote-service-label"
+                                onKeyDown={handleServiceListKeyDown}
+                                className="absolute top-full left-0 right-0 mt-1 bg-[#ffffff] border border-gray-200 rounded-lg shadow-lg z-20 max-h-48 overflow-y-auto"
+                              >
+                                {services.map((service, i) => (
+                                  <div
                                     key={service}
-                                    type="button"
-                                    onClick={() => {
-                                      handleInputChange('service', service);
-                                      setIsServiceDropdownOpen(false);
-                                      setValidationErrors((prev) => ({ ...prev, service: false }));
-                                    }}
-                                    className="w-full p-3 text-left hover:bg-gray-50 transition-colors justify-start"
+                                    ref={(el) => { serviceOptionRefs.current[i] = el; }}
+                                    role="option"
+                                    aria-selected={formData.service === service}
+                                    tabIndex={-1}
+                                    onClick={() => selectService(service)}
+                                    className="w-full p-3 text-left hover:bg-gray-50 transition-colors justify-start cursor-pointer"
                                   >
                                     {service}
-                                  </button>
+                                  </div>
                                 ))}
                               </div>
                             )}
 
                             {validationErrors.service && (
-                              <p className="text-xs text-red-500 mt-1 absolute right-0 z-10">
-                                Please select a service.
+                              <p id="quote-service-error" role="alert" className="text-xs text-[#B42318] mt-1 absolute right-0 z-10">
+                                Choose what you need a quote for.
                               </p>
                             )}
                           </div>
 
-                          <div className="md:pb-1 md:mt-1 border-b border-gray-200 relative">
+                          <div className="md:py-1 border-b border-gray-200 relative">
                             <input
-                              autoComplete="off"
+                              ref={fullNameRef}
+                              id="quote-name"
+                              name="fullName"
+                              autoComplete="name"
+                              required
+                              aria-required="true"
+                              aria-invalid={validationErrors.fullName || undefined}
+                              aria-describedby={validationErrors.fullName ? 'quote-name-error' : undefined}
                               // onFocus={(e) => e.target.removeAttribute('readOnly')}
                               type="text"
                               placeholder="Full Name"
                               value={formData.fullName}
                               onChange={(e) => handleInputChange('fullName', e.target.value)}
-                              className={`w-full focus:outline-none font-[100] py-2 ${validationErrors.fullName ? 'placeholder-red-500' : ''}`}
+                              className={`w-full focus:outline-none text-[16px] font-[400] py-2 leading-[28px] ${validationErrors.fullName ? 'placeholder-red-500' : ''}`}
                             />
 
                             {validationErrors.fullName && (
-                              <p className="text-xs text-red-500 mt-1 absolute right-0 z-10">
-                                Please enter your full name.
+                              <p id="quote-name-error" role="alert" className="text-xs text-[#B42318] mt-1 absolute right-0 z-10">
+                                Enter your full name.
                               </p>
                             )}
                           </div>
 
-                          <div className="md:pb-1 md:mt-1 border-b border-gray-200 relative">
+                          <div className="md:py-1 border-b border-gray-200 relative">
                             <input
-                              autoComplete="off"
+                              ref={emailRef}
+                              id="quote-email"
+                              name="email"
+                              autoComplete="email"
+                              required
+                              aria-required="true"
+                              aria-invalid={validationErrors.email || undefined}
+                              aria-describedby={validationErrors.email ? 'quote-email-error' : undefined}
+                              onBlur={() => {
+                                // Tell the user straight away when the address is malformed
+                                if (formData.email && !isValidEmail(formData.email)) {
+                                  setValidationErrors((prev) => ({ ...prev, email: true }));
+                                }
+                              }}
                               // readOnly
                               // onFocus={(e) => e.target.removeAttribute('readOnly')}
                               type="email"
                               placeholder="Email"
                               value={formData.email}
                               onChange={(e) => handleInputChange('email', e.target.value)}
-                              className={`w-full focus:outline-none font-[100] py-2 ${validationErrors.email ? 'placeholder-red-500' : ''}`}
+                              className={`w-full focus:outline-none font-[400] py-2 leading-[28px] ${validationErrors.email ? 'placeholder-red-500' : ''}`}
                             />
                             {validationErrors.email && (
-                              <p className="text-xs text-red-500 mt-1 absolute right-0 z-10">
+                              <p id="quote-email-error" role="alert" className="text-xs text-[#B42318] mt-1 absolute right-0 z-10">
                                 {formData.email
-                                  ? 'Please enter a valid email.'
-                                  : 'Please enter your email.'}
+                                  ? 'Enter an email address like name@company.com.'
+                                  : 'Enter your email address.'}
                               </p>
                             )}
                           </div>
 
-                          <div className={`relative flex gap-2 pt-[6px] border-b `}>
+                          <div className={`relative flex items-center gap-2 md:py-1 border-b `}>
                             <PhoneInput
                               international
                               defaultCountry={defaultCountry as any}
@@ -672,7 +825,10 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                               value={formData.phone}
                               onChange={(value) => handleInputChange('phone', value || '')}
                               placeholder="Mobile number (optional)"
-                              autoComplete="new-text-4"
+                              autoComplete="tel"
+                              id="quote-phone"
+                              name="phone"
+                              aria-label="Mobile number (optional)"
                               onKeyDown={(e: React.KeyboardEvent) => {
                                 const digitsOnly = formData.phone.replace(/\D/g, '');
                                 const allowedKeys = [
@@ -690,54 +846,64 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                                   e.preventDefault();
                                 }
                               }}
-                              className="!border-none gap-[20px] font-[100] w-full !p-0 [&>input]:!text-title [&>input]:!subheading [&>input]:font-source [&>input]:font-thin [&>input]:focus:!outline-none [&>input]:!py-2 [&>input]:!flex-1 [&>input]:placeholder-[#2A2A2A]"
+                              className="!border-none gap-[20px] font-[400] w-full !p-0 [&>input]:!text-title [&>input]:!text-[16px] [&>input]:!font-roboto [&>input]:!font-[400] [&>input]:focus:!outline-none [&>input]:!py-2 [&>input]:!leading-[28px] [&>input]:!flex-1 [&>input]:placeholder-[#2A2A2A]"
                             />
                             {!formData.phone && (
-                              <p className="text-white z-10 top-[14px] left-[115px] whitespace-nowrap font-[100] pointer-events-none absolute right-0">
+                              <p aria-hidden="true" className="!text-[#6B7280] z-10 top-[14px] left-[115px] whitespace-nowrap font-[100] pointer-events-none absolute right-0">
                                 Mobile number (optional)
                               </p>
                             )}
                           </div>
 
-                          <div className="md:pb-1 border-b border-gray-200">
+                          <div className="md:pt-[6px]">
                             <textarea
-                              autoComplete="off"
+                              id="quote-message"
+                              name="message"
+                              aria-label="Message (optional)"
                               // readOnly
                               // onFocus={(e) => e.target.removeAttribute('readOnly')}
                               placeholder="Message (optional)"
                               value={formData.message}
                               onChange={(e) => handleInputChange('message', e.target.value)}
                               rows={2}
-                              className="w-full focus:outline-none font-[100] resize-none md:max-h-[40px] pt-[8px] md:pt-[none] md:py-2 "
+                              className="w-full focus:outline-none font-[400] resize-none md:max-h-[100%] pt-[8px] md:pt-[none] md:py-2 "
                             />
                           </div>
                         </div>
 
-                        <div className=" pt-4">
+                        <div className="border-t border-[#E1E1E1] pt-4">
                           {/* ReCAPTCHA */}
                           {formData.service && formData.fullName && formData.email && (
                             <div className="mb-3">
                               <ReCAPTCHA
                                 ref={recaptchaRef}
                                 sitekey="6LdSzGEUAAAAABG0EhsRTOkyJUyTqwFz6gpNX8g1"
-                                onChange={(token) => setCaptchaToken(token)}
+                                onChange={(token) => {
+                                  setCaptchaToken(token);
+                                  if (token) setCaptchaError(false);
+                                }}
                                 onExpired={() => setCaptchaToken(null)}
                                 size="normal"
                               />
+                              {captchaError && (
+                                <p role="alert" className="text-xs text-[#B42318] mt-1">
+                                  Please confirm you are not a robot.
+                                </p>
+                              )}
                             </div>
                           )}
                           <button
                             type="submit"
-                            disabled={isSubmitting || !captchaToken}
-                            className={`new-btn-design-full mb-center ${!captchaToken ? 'opacity-[0.65] cursor-not-allowed' : ''}`}
+                            disabled={isSubmitting}
+                            className={`h-[40px] rounded-[50px] flex items-center justify-center font-roboto font-[500] tracking-[-3%] leading-[28px] gap-[10px] bg-[#00855D] text-[16px] text-[#ffffff] mb-center`}
                             style={{width: '100%'}}
                           >
-                            Lets Work Together
+                            Let&apos;s Work Together
                           </button>
 
-                          <p className="text-[11px] mt-[3px] text-white text-center">
-                            By clicking "Lets Work Together", you agree to our{' '}
-                            <Link href="/privacy-policy" target="_blank" className="text-till">
+                          <p className="text-[12px] mt-[5px] font-roboto font-[400] tracking-[-3%] text-[#4B5563] text-center">
+                            By clicking &quot;Let&apos;s Work Together&quot;, you agree to our{' '}
+                            <Link href="/privacy-policy" target="_blank" className="text-[#00855D] font-[500] underline underline-offset-2">
                               Privacy Policy
                             </Link>
                           </p>
@@ -749,7 +915,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                             }
 
                             type="button"
-                            className="w-full text-[#52d09c] flex justify-center items-center mt-5 border-[1px] h-[40px] rounded-[100px] border-[#52d09c] hover:bg-green-btn hover:text-primary-white transition-all duration-300 border-radius-[100px]"
+                            className="w-full text-[#00855D] flex justify-center items-center mt-5 border-[1px] h-[40px] rounded-[100px] border-[#00855D] hover:bg-[#00855D] hover:text-primary-white transition-all duration-300 border-radius-[100px]"
                           >
                             Chat with Us
                           </Link>
@@ -759,33 +925,26 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                   )}
                 </div>
                 <div className={`flex flex-wrap md:gap-4 gap-2 flex-col justify-center md:pt-6 pt-0 pb-2 md:pb-5 text-center md:hidden ${isSuccess ? 'hidden' : ''}`}>
-                  <p className="text-[#099] text-[14px] w-full md:w-full lg:w-1/3 flex justify-center mb-2 lg:mb-0">
+                  <p className="text-[#007A7A] text-[14px] w-full md:w-full lg:w-1/3 flex justify-center mb-2 lg:mb-0">
                     {/* <a target='_blank' href="https://api.whatsapp.com/send/?phone=442081446579&text=Hey...+I+would+like+to+have+a+quick+chat+with+you.&type=phone_number&app_absent=0">UK: +44 2081 446579</a> */}
                     {/* <a target='_blank' href="https://api.whatsapp.com/send/?phone=447469539191&text=Hey...+I+would+like+to+have+a+quick+chat+with+you.&type=phone_number&app_absent=0">UK: +44 7469 539191</a> */}
                     <a href="tel:+18724446679">US: +1 (872) 444 6679</a>
                   </p>
 
-                  <p className="text-[#099]  text-[14px] w-full lg:w-1/3 md:w-full lg:flex justify-center mb-2 lg:mb-0">
+                  <p className="text-[#007A7A]  text-[14px] w-full lg:w-1/3 md:w-full lg:flex justify-center mb-2 lg:mb-0">
                     <a href="tel:+447469539191">UK: +44 7469 539191</a>
                   </p>
 
-                  <p className="text-[#099] text-[14px] w-full lg:w-1/3 md:w-full lg:flex justify-center">
+                  <p className="text-[#007A7A] text-[14px] w-full lg:w-1/3 md:w-full lg:flex justify-center">
                     <a href="tel:+919830566248">IN: +91 9830 566 248</a>
                   </p>
                 </div>
               </div>
               <div className="md-hidden absolute top-[10px] right-[10px]">
                 <button type="button" aria-label="Close modal" onClick={handleClose}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="#000"
-                    width="20px"
-                    height="20px"
-                    viewBox="-3.5 0 19 19"
-                    className="cf-icon-svg hidden md:block"
-                  >
-                    <path d="M11.383 13.644A1.03 1.03 0 0 1 9.928 15.1L6 11.172 2.072 15.1a1.03 1.03 0 1 1-1.455-1.456l3.928-3.928L.617 5.79a1.03 1.03 0 1 1 1.455-1.456L6 8.261l3.928-3.928a1.03 1.03 0 0 1 1.455 1.456L7.455 9.716z" />
-                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+<path d="M8.9935 11.1295L2.56029 17.5714C2.27437 17.8571 1.91697 18 1.48809 18C1.05921 18 0.701805 17.8571 0.415884 17.5714C0.129964 17.2857 -0.00852888 16.9286 0.000406137 16.5C0.00934116 16.0714 0.147834 15.7143 0.415884 15.4286L6.8491 9L0.415884 2.57143C0.138899 2.28571 0.000406137 1.92857 0.000406137 1.5C0.000406137 1.07143 0.138899 0.714285 0.415884 0.428571C0.69287 0.142857 1.05027 0.00446395 1.48809 0.0133925C1.9259 0.0223211 2.2833 0.160714 2.56029 0.428571L8.9935 6.85714L15.4267 0.428571C15.7126 0.142857 16.07 0 16.4989 0C16.9278 0 17.2852 0.142857 17.5711 0.428571C17.857 0.714285 18 1.07143 18 1.5C18 1.92857 17.857 2.28571 17.5711 2.57143L11.1245 9L17.5577 15.4286C17.8436 15.7143 17.9866 16.0714 17.9866 16.5C17.9866 16.9286 17.8481 17.2857 17.5711 17.5714C17.2941 17.8571 16.9367 18 16.4989 18C16.0611 18 15.7037 17.8571 15.4267 17.5714L8.9935 11.1295Z" fill="#123B42"/>
+</svg>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="#FFF"

@@ -351,8 +351,8 @@ input:focus-visible {
   min-height: 100px;
   background-color: #fff !important;
   border-radius: 5px;
-  background: url('/images/popup_bg.a6ea4789157be1fe2d98.png') bottom / contain no-repeat;
-  background-position: 50% 125% !important;
+  background: url('/images/popup_bg_web1.png') bottom / contain no-repeat;
+  background-position: 50% 100% !important;
   z-index: -1;
   overflow: hidden;
 }
@@ -749,13 +749,14 @@ input:focus-visible {
   }
 }
 
+/* WCAG 1.4.3: #6B7280 is 4.83:1 on white (was #90A5A5, 2.6:1) */
 .modal-container input.PhoneInputInput::placeholder {
-  color: var(--text-dark);
+  color: #6B7280;
 }
 
 .modal-container input::placeholder,
 .modal-container textarea::placeholder {
-  color: #b2b2b2;
+  color: #6B7280;
   font-weight: 100;
 }
 
@@ -787,9 +788,9 @@ textarea::placeholder {
   color: #b2b2b2;
 }
 
+/* WCAG 2.4.7: no outline:none here, so the global :focus-visible ring shows on modal fields */
 .modal-container input:focus-visible {
-  border: none;
-  outline: none;
+  border: none !important;
 }
 
 .card {
@@ -3037,4 +3038,23 @@ a.horizon-nav-menu::after {
   outline: 2px solid #1e1e1e !important;
   outline-offset: 2px !important;
   box-shadow: 0 0 0 2px #ffffff !important;
+}
+
+/* Free Quote modal: country picker arrow is dark and bold, sitting close to the flag */
+.modal-container .PhoneInputCountry {
+  gap: 12px;
+}
+.modal-container .PhoneInputCountrySelectArrow {
+  color: #212529 !important;
+  border-color: #212529 !important;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  width: 0.4em;
+  height: 0.4em;
+}
+
+/* Free Quote modal: keyboard focus on the hidden country <select> is shown on the flag */
+.modal-container .PhoneInputCountrySelect:focus-visible + .PhoneInputCountryIcon {
+  outline: 2px solid #1e1e1e;
+  outline-offset: 2px;
 }

@@ -345,9 +345,10 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                   Information
                 </h2>
                 <div className="text-[16px] lg:mb-0 mb-[1rem] leading-relaxed block">
+                  
                   <a
-                    href="#" /* original href: "https://www.google.com/maps/search/?api=1&query=Godrej+Genesis+Sector+V+Salt+Lake+Kolkata+700091" */
-                    /* target="_blank" */
+                    href="https://www.google.com/maps/place/Godrej+Genesis+Building,+EP+Block,+Sector+V,+Bidhannagar,+West+Bengal+700091/@22.5728878,88.4313771,17z/data=!3m1!4b1!4m6!3m5!1s0x3a0275aee4dec06d:0x8896e464d46d925c!8m2!3d22.5728878!4d88.433952!16s%2Fg%2F11b8ym_ss6?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     <span className="inline">
@@ -360,6 +361,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       </span>
                     </span>
                   </a>
+
                 </div>
                 <ul role="list" className="lg:hidden block space-y-2 text-[13px]">
                   <li>
@@ -761,7 +763,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                     </li>
                   </ul>
                 </div>
-                <p className="lg:hidden block text-center text-white text-[12px] font-roboto font-[300] lg:max-w-[100%] max-w-[100%] mx-auto">
+                <p className="lg:hidden block text-center text-[#FCFFF9] lg:text-[12px] text-[12px] font-roboto font-[300] lg:max-w-[100%] max-w-[100%] mx-auto">
                   Copyright © Bitpastel Solution Private Limited {new Date().getFullYear()}
                   <br />
                   All Rights Reserved
@@ -776,7 +778,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
               className="pt-6 lg:block hidden"
               style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}
             >
-              <p className="text-center text-[#FCFFF9] lg:text-[14px] text-[12px] font-roboto font-[400] lg:max-w-[100%] max-w-[80%] mx-auto">
+              <p className="text-center text-[#FCFFF9] lg:text-[12px] text-[12px] font-roboto font-[400] lg:max-w-[100%] max-w-[80%] mx-auto">
                 Copyright © Bitpastel Solution Private Limited {new Date().getFullYear()} | All Rights Reserved |{' '}
                 <Link prefetch={true} href="#" /* original href: "/privacy-policy" */ className="underline underline-offset-[3px] hover:decoration-2">
                   Privacy Policy

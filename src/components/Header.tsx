@@ -252,8 +252,6 @@ const Header = ({ forceModalOpen = false, onModalClose }: HomePageProps) => {
   // the URL as /<scope>/free-quote (scope picked from the current page) without
   // triggering a Next.js navigation, so the current page stays mounted under it.
   const handleChatClick = useCallback(() => {
-    // Home-page-only showcase: free quote modal disabled
-    return
     if (typeof window !== "undefined") {
       const currentUrl =
         window.location.pathname + window.location.search + window.location.hash
@@ -436,7 +434,6 @@ const Header = ({ forceModalOpen = false, onModalClose }: HomePageProps) => {
         </div>
       </header>
 
-      {/* Home-page-only showcase: free quote modal disabled
       <Modal
         open={isModalOpen}
         setIsModalOpen={((value) => {
@@ -450,7 +447,7 @@ const Header = ({ forceModalOpen = false, onModalClose }: HomePageProps) => {
             handleModalClose()
           }
         }) as React.Dispatch<React.SetStateAction<boolean>>}
-      /> */}
+      />
     </>
   )
 }
