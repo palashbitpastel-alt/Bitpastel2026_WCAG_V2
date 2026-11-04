@@ -3058,3 +3058,11 @@ a.horizon-nav-menu::after {
   outline: 2px solid #1e1e1e;
   outline-offset: 2px;
 }
+
+/* Free Quote modal: no focus ring when a field is clicked with the mouse.
+   Keyboard (Tab) focus keeps the ring above, which is what WCAG 2.4.7 requires. */
+html[data-input-modality="pointer"] .modal-container input:focus-visible,
+html[data-input-modality="pointer"] .modal-container textarea:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}

@@ -19,5 +19,25 @@ export default function Template({ children }: { children: ReactNode }) {
     return () => document.removeEventListener('click', onClick, true);
   }, []);
 
+  // Remember whether the user is navigating by keyboard (Tab) or pointer, so text
+  // fields can hide the focus ring after a mouse click. Browsers always match
+  // :focus-visible on text inputs, even when clicked; WCAG 2.4.7 only needs the
+  // ring for keyboard focus, which still shows it.
+  useEffect(() => {
+    const root = document.documentElement;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Tab') root.dataset.inputModality = 'keyboard';
+    };
+    const onPointer = () => {
+      root.dataset.inputModality = 'pointer';
+    };
+    document.addEventListener('keydown', onKey, true);
+    document.addEventListener('pointerdown', onPointer, true);
+    return () => {
+      document.removeEventListener('keydown', onKey, true);
+      document.removeEventListener('pointerdown', onPointer, true);
+    };
+  }, []);
+
   return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
 }
