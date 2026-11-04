@@ -513,7 +513,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                   </h2>
 
                   <div className="grid lg:grid-cols-4 md:grid-cols-2 md:gap-[10px] ">
-                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#0D9EBF4D]">
+                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#0D9EBF4D] shadow-[0.47px_0.95px_8.54px_0px_#00000014]">
                       <Image
                         src="/images/modal-stat-clients.svg"
                         alt=""
@@ -525,7 +525,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                       <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Clients</p>
                     </div>
 
-                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#B48D0E4D]">
+                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#B48D0E4D] shadow-[0.47px_0.95px_8.54px_0px_#00000014]">
                       <Image
                         src="/images/modal-stat-projects.svg"
                         alt=""
@@ -537,7 +537,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                       <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Projects</p>
                     </div>
 
-                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#F245534D]">
+                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#F245534D] shadow-[0.47px_0.95px_8.54px_0px_#00000014]">
                       <Image
                         src="/images/modal-stat-code.svg"
                         alt=""
@@ -549,7 +549,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                       <p className="text-[16px] font-[400] text-[#222B32] font-roboto leading-[22px]">Lines of Code</p>
                     </div>
 
-                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#29996A4D]">
+                    <div className="text-center md:bg-[#FCFFF9] px-[16px] py-[16px] rounded-[10px] border-[0.47px] border-[#29996A4D] shadow-[0.47px_0.95px_8.54px_0px_#00000014]">
                       <Image
                         src="/images/modal-stat-countries.svg"
                         alt=""
@@ -562,14 +562,14 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                     </div>
                   </div>
                   <div className="flex flex-wrap justify-center lg:gap-0 gap-4 pt-6 text-center lg:mr-[-17px]">
-                    <p className="text-[#123B42] text-[17px] tracking-[-1px] leading-[18px] font-[600] font-source border-right w-full lg:w-1/3 md:w-full lg:flex justify-center mb-2 lg:mb-0">
+                    <p className="text-[#123B42] text-[17px] leading-[18px] font-[600] font-source border-right w-full lg:w-1/3 md:w-full lg:flex justify-center mb-2 lg:mb-0">
                       <a href="tel:+18724446679">
                         <span className="font-[700] pr-[3px]">
                         US: 
                         </span>
                          +1 (872) 444 6679</a>
                     </p>
-                    <p className="text-[#123B42] text-[17px] tracking-[-1px] leading-[18px] font-[600] font-source border-right w-full md:w-full lg:w-1/3 flex justify-center mb-2 lg:mb-0">
+                    <p className="text-[#123B42] text-[17px] leading-[18px] font-[600] font-source border-right w-full md:w-full lg:w-1/3 flex justify-center mb-2 lg:mb-0">
                       {/* <a target='_blank' href="https://api.whatsapp.com/send/?phone=442081446579&text=Hey...+I+would+like+to+have+a+quick+chat+with+you.&type=phone_number&app_absent=0">UK: +44 2081 446579</a> */}
                       {/* <a target='_blank' href="https://api.whatsapp.com/send/?phone=447469539191&text=Hey...+I+would+like+to+have+a+quick+chat+with+you.&type=phone_number&app_absent=0">UK: +44 7469 539191</a> */}
                       <a href="tel:+447469539191">
@@ -581,7 +581,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
 
                     
 
-                    <p className="text-[#123B42] text-[17px] tracking-[-1px] leading-[18px] font-[600] font-source w-full lg:w-1/3 md:w-full lg:flex justify-center">
+                    <p className="text-[#123B42] text-[17px] leading-[18px] font-[600] font-source w-full lg:w-1/3 md:w-full lg:flex justify-center">
                       <a href="tel:+919830566248">
                         <span className="font-[700] pr-[3px]">
                         IN: 
