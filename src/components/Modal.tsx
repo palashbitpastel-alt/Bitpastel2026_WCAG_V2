@@ -774,7 +774,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                               placeholder="Full Name"
                               value={formData.fullName}
                               onChange={(e) => handleInputChange('fullName', e.target.value)}
-                              className={`w-full focus:outline-none text-[16px] font-[400] py-2 leading-[28px] ${validationErrors.fullName ? 'placeholder-red-500' : ''}`}
+                              className={`w-full bg-transparent focus:outline-none text-[16px] font-[400] py-2 leading-[28px] ${validationErrors.fullName ? 'placeholder-red-500' : ''}`}
                             />
 
                             {validationErrors.fullName && (
@@ -806,7 +806,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                               placeholder="Email"
                               value={formData.email}
                               onChange={(e) => handleInputChange('email', e.target.value)}
-                              className={`w-full focus:outline-none font-[400] py-2 leading-[28px] ${validationErrors.email ? 'placeholder-red-500' : ''}`}
+                              className={`w-full focus:outline-none font-[400] bg-transparent py-2 leading-[28px] ${validationErrors.email ? 'placeholder-red-500' : ''}`}
                             />
                             {validationErrors.email && (
                               <p id="quote-email-error" role="alert" className="text-xs text-[#B42318] mt-1 absolute right-0 z-10">
@@ -866,7 +866,7 @@ const Modal: React.FC<ModalProps> = ({ open, setIsModalOpen, children }) => {
                               value={formData.message}
                               onChange={(e) => handleInputChange('message', e.target.value)}
                               rows={2}
-                              className="w-full focus:outline-none font-[400] resize-none md:max-h-[100%] pt-[8px] md:pt-[none] md:py-2 "
+                              className="w-full bg-transparent focus:outline-none font-[400] resize-none md:max-h-[100%] pt-[8px] md:pt-[none] md:py-2 "
                             />
                           </div>
                         </div>
