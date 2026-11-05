@@ -16,6 +16,8 @@ import BonyImg from '../../../public/images/Testimonial Section/Images/Bony.webp
 interface Testimonial {
   id: number;
   name: string;
+  // Name as signed in the chat bubble; used in the photo's alt text so it matches the caption
+  fullName: string;
   // Text shown inside the chat-bubble image, used as its alt text (WCAG 1.1.1)
   quote: string;
   image: StaticImageData;
@@ -29,6 +31,7 @@ const testimonials: Testimonial[] = [
   {
     id: 1,
     name: 'Shovan',
+    fullName: 'Shovan',
     quote: '“Over 4 years at Bitpastel, I’ve grown through exciting challenges, learned a lot, led amazing projects, and worked with a talented team - all in a culture that truly supports and inspires excellence.” Shovan',
     image: ShovanImg,
     testimonialDesk: '/images/Testimonial Section/Chat boxes/Shovan Kar/left.webp',
@@ -48,6 +51,7 @@ const testimonials: Testimonial[] = [
   {
     id: 3,
     name: 'Ibrahim',
+    fullName: 'Md Ibrahim',
     quote: '“The work culture is excellent, with huge opportunities for youngsters to grow. The people are highly supportive. I have worked here for the last 7 years - and this place has truly redefined my career.” Md Ibrahim',
     image: IbrahimImg,
     testimonialDesk: '/images/Testimonial Section/Chat boxes/Md Ibrahim/left.webp',
@@ -58,6 +62,7 @@ const testimonials: Testimonial[] = [
   {
     id: 4,
     name: 'Sneha',
+    fullName: 'Sneha Mondal',
     quote: '“Working at Bitpastel for the past 3 years has been truly rewarding. From day one, I was welcomed into a supportive, inclusive environment with approachable and transparent leadership that encourages growth.” Sneha Mondal',
     image: SnehaImg,
     testimonialDesk: '/images/Testimonial Section/Chat boxes/sneha mondal/left.webp',
@@ -77,6 +82,7 @@ const testimonials: Testimonial[] = [
   {
     id: 6,
     name: 'Mousumi',
+    fullName: 'Mousumi Sengupta',
     quote: "“Bitpastel offers a supportive, trust-driven culture where I’ve grown through meaningful projects and strong teamwork. The leadership is approachable, and there's a shared commitment to quality and innovation.” Mousumi Sengupta",
     image: MousumiImg,
     testimonialDesk: '/images/Testimonial Section/Chat boxes/Mousumi sengupta/left.webp',
@@ -87,6 +93,7 @@ const testimonials: Testimonial[] = [
   {
     id: 7,
     name: 'Bony',
+    fullName: 'Bony Malakar',
     quote: '“The leadership team encourages innovation and values every employee’s contribution, which makes a big difference. Bitpastel has truly shaped my professional career, and I’m proud to be part of a company that values excellence and teamwork.” Bony Malakar',
     image: BonyImg,
     testimonialDesk: '/images/Testimonial Section/Chat boxes/bony malakar/left.webp',
@@ -172,7 +179,7 @@ const TeamTestimonialNew = () => {
         <motion.div variants={fadeUp}>
           <Image
             src={t1.image}
-            alt=""
+            alt={`Photo of ${t1.fullName}`}
             className="testimonial-person-image"
           />
         </motion.div>
@@ -207,7 +214,7 @@ const TeamTestimonialNew = () => {
       >
         <motion.img
           src={t2.image.src}
-          alt=""
+          alt={`Photo of ${t2.fullName}`}
           className="testimonial-person-image"
           variants={fadeUp}
         />
@@ -243,7 +250,7 @@ const TeamTestimonialNew = () => {
       >
         <motion.img
           src={t3.image.src}
-          alt=""
+          alt={`Photo of ${t3.fullName}`}
           className="testimonial-person-image"
           variants={fadeUp}
         />

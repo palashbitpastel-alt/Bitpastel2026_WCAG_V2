@@ -37,8 +37,8 @@ const MobileTeamCollage: React.FC = () => {
 
   const townhall2026Images: CarouselItem[] = [
     { id: '1', type: 'image', src: '/images/Townhall2026Mob/MBTH1.webp', alt: 'Townhall 2026: about 35 team members posed in rows in front of a "Bitpastel Townhall 2026" and "AI Transformation" backdrop' },
-    { id: '2', type: 'image', src: '/images/Townhall2026Mob/MBTH2.webp', alt: 'Townhall 2026: a speaker in a dark blazer addressing the team with a microphone in front of the event backdrop' },
-    { id: '3', type: 'image', src: '/images/Townhall2026Mob/MBTH3.webp', alt: 'Townhall 2026: a speaker in a blue suit holding a microphone in front of a "Custom SaaS Solutions" backdrop' },
+    { id: '2', type: 'image', src: '/images/Townhall2026Mob/MBTH2.webp', alt: 'Townhall 2026: Manager and VP Ibrahim in a dark blazer addressing the team with a microphone in front of the event backdrop' },
+    { id: '3', type: 'image', src: '/images/Townhall2026Mob/MBTH3.webp', alt: 'Townhall 2026: CEO Ayan in a blue suit holding a microphone in front of a "Custom SaaS Solutions" backdrop' },
     { id: '4', type: 'image', src: '/images/Townhall2026Mob/MBTH4.webp', alt: 'Townhall 2026: two hosts reading from scripts with microphones on stage in front of the "Bitpastel Townhall" backdrop' },
     { id: '5', type: 'image', src: '/images/Townhall2026Mob/MBTH5.webp', alt: 'Townhall 2026: five team members in formal wear posing on a red carpet in front of the "Bitpastel Townhall 2026" backdrop' },
     { id: '6', type: 'image', src: '/images/Townhall2026Mob/MBTH6.webp', alt: 'Townhall 2026: about 22 team members posing on stage, the front row seated, in front of the "AI Transformation" backdrop' },
@@ -150,14 +150,14 @@ const MobileTeamCollage: React.FC = () => {
     { id: '11', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall 2024/11.webp', alt: 'Townhall 2024: two colleagues in navy blazers stand side by side in a hotel lounge with a brick wall and a Bitpastel banner behind them' },
     { id: '12', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall 2024/12.webp', alt: 'Townhall 2024: a team member holding a microphone and a stack of papers smiles while hosting on stage in front of the event backdrop' },
     { id: '13', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall 2024/13.webp', alt: 'Townhall 2024: a team member laughs while presenting at a podium with a laptop, microphone in hand, beside a "Bitpastel Town Hall" banner' },
-    { id: '14', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall 2024/14.webp', alt: 'Townhall 2024: a team member in a blue blazer smiles while reaching into a bowl of chocolates as colleagues sit at round tables behind him' },
+    { id: '14', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall 2024/14.webp', alt: 'Townhall 2024: Manager Sagnik in a blue blazer smiles while reaching into a bowl of chocolates as colleagues sit at round tables behind him' },
     { id: '15', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall 2024/15.webp', alt: 'Townhall 2024: eight award winners stand in a row on a red-carpeted stage, each holding a trophy, before the "Bitpastel Town Hall" backdrop' },
   ];
 
   const bitpastelTownhall2023: CarouselItem[] = [
     { id: '1', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall2023/1.webp', alt: 'Townhall 2023: a team member cuts a two-tier "bitpastel" cake topped with a gold "6" as colleagues smile and applaud' },
-    { id: '2', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall2023/2.webp', alt: 'Townhall 2023: a speaker in a navy suit addresses the team with a microphone before a "bitpastel 6 Years" backdrop' },
-    { id: '3', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall2023/3.webp', alt: 'Townhall 2023: a speaker in a dark blazer gestures while talking into a microphone in front of the "6 Years" backdrop' },
+    { id: '2', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall2023/2.webp', alt: 'Townhall 2023: CEO Ayan in a navy suit addresses the team with a microphone before a "bitpastel 6 Years" backdrop' },
+    { id: '3', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall2023/3.webp', alt: 'Townhall 2023: Manager Ibrahim in a dark blazer gestures while talking into a microphone in front of the "6 Years" backdrop' },
     { id: '4', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall2023/4.webp', alt: 'Townhall 2023: about 30 team members pose together flashing peace signs in front of the "bitpastel 6 Years" backdrop' },
     { id: '5', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall2023/5.webp', alt: 'Townhall 2023: a smiling team member in a striped shirt speaks into a microphone in front of the "6 Years" backdrop' },
     { id: '6', type: 'image', src: '/images/new-team-images/Team page slicing/Bitpastel townhall2023/6.webp', alt: 'Townhall 2023: a team member in a maroon suit smiles while speaking into a microphone at the anniversary event' },

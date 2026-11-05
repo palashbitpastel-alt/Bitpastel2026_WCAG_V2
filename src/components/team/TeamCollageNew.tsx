@@ -347,14 +347,14 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TH2}
-              alt="Townhall 2026: a speaker in a dark blazer addressing the team with a microphone in front of the event backdrop"
+              alt="Townhall 2026: Manager and VP Ibrahim in a dark blazer addressing the team with a microphone in front of the event backdrop"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
             />
             <Image
               src={TH3}
-              alt="Townhall 2026: a speaker in a blue suit holding a microphone in front of a &quot;Custom SaaS Solutions&quot; backdrop"
+              alt="Townhall 2026: CEO Ayan in a blue suit holding a microphone in front of a &quot;Custom SaaS Solutions&quot; backdrop"
               width={600} // REPLACE with actual intrinsic width
               height={400} // REPLACE with actual intrinsic height
               className='w-full object-cover'
@@ -1043,7 +1043,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2024_13}
-              alt="Townhall 2024: a team member in a blue blazer smiles while reaching into a bowl of chocolates as colleagues sit at round tables behind him"
+              alt="Townhall 2024: Manager Sagnik in a blue blazer smiles while reaching into a bowl of chocolates as colleagues sit at round tables behind him"
               width={1200}
               height={900}
               quality={100}
@@ -1085,7 +1085,7 @@ const TeamCollageNew = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mb-2'>
             <Image
               src={TownHall2023_2}
-              alt="Townhall 2023: a speaker in a navy suit addresses the team with a microphone before a &quot;bitpastel 6 Years&quot; backdrop"
+              alt="Townhall 2023: CEO Ayan in a navy suit addresses the team with a microphone before a &quot;bitpastel 6 Years&quot; backdrop"
               width={1200}
               height={900}
               quality={100}
@@ -1093,7 +1093,7 @@ const TeamCollageNew = () => {
             />
             <Image
               src={TownHall2023_3}
-              alt="Townhall 2023: a speaker in a dark blazer gestures while talking into a microphone in front of the &quot;6 Years&quot; backdrop"
+              alt="Townhall 2023: Manager Ibrahim in a dark blazer gestures while talking into a microphone in front of the &quot;6 Years&quot; backdrop"
               width={1200}
               height={900}
               quality={100}
