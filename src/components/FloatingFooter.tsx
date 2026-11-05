@@ -157,7 +157,7 @@ const FloatingFooter = () => {
 
         {/* Services */}
         <div className="nav-item flex flex-col items-center">
-          <a href="#services" onClick={handleServicesClick} className="flex flex-col items-center">
+          <a href="/#services" onClick={handleServicesClick} className="flex flex-col items-center">
             <Image src={navIcon('service', 'services')} alt="" aria-hidden="true" width={22} height={22} className="h-[22px] w-[22px]" />
             <span className={textCls('services')}>Services</span>
           </a>

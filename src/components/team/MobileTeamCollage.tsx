@@ -250,9 +250,10 @@ const renderCarouselSection = (
     ref={ref => setCarouselRef(ref, id)}
     data-carousel-id={id}
     variants={{
-      hidden: { opacity: 0, y: 30 },
+      // Slide only, no fade: content is rendered visible in the server HTML, so screen
+      // readers and WCAG scanners (which don't scroll) don't meet opacity:0 content
+      hidden: { y: 30 },
       visible: {
-        opacity: 1,
         y: 0,
         transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] },
       },
@@ -281,7 +282,8 @@ const renderCarouselSection = (
 
 
   return (
-    <section className="relative team-members-mob team-members-mobile" id="OurTeam">
+    // id="OurTeam" lives on the wrapper in culture/page.tsx; repeating it here duplicated the ID
+    <section className="relative team-members-mob team-members-mobile">
 
       {/* Bitpaastel Offsite 2026 */}
       {renderCarouselSection(

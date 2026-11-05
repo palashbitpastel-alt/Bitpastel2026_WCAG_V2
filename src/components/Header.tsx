@@ -360,7 +360,7 @@ const Header = ({ forceModalOpen = false, onModalClose }: HomePageProps) => {
               <ul role="list" className="flex space-x-3 items-center">
                 <li>
                   <a
-                    href="#services"
+                    href="/#services"
                     aria-current={activeSection === "services" ? "true" : undefined}
                     onClick={(e) => { lockActiveSection("services"); handleLinkClick(e, "services"); }}
                     className={`nav-dark inline-flex items-center justify-center min-h-[44px] py-[10px] px-[10px] rounded-[4px] ${activeSection === "services" ? "is-active" : ""} `}
@@ -371,7 +371,7 @@ const Header = ({ forceModalOpen = false, onModalClose }: HomePageProps) => {
                 </li>
                 <li>
                   <a
-                    href="#stories"
+                    href="/#stories"
                     aria-current={activeSection === "stories" ? "true" : undefined}
                     onClick={(e) => { e.preventDefault(); lockActiveSection("stories"); scrollToNews(); }}
                     className={`nav-dark inline-flex items-center justify-center min-h-[44px] py-[10px] px-[10px] rounded-[4px] ${activeSection === "stories" ? "is-active" : ""} `}

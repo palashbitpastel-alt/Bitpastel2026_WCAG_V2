@@ -105,28 +105,27 @@ const testimonials: Testimonial[] = [
 
 const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
+// Slide only, no fade: the testimonials are rendered visible in the server HTML, so
+// screen readers and WCAG scanners (which don't scroll) never meet opacity:0 content
 const fadeUp = {
-  hidden: { opacity: 0, y: isMobile ? 20 : 60 },
+  hidden: { y: isMobile ? 20 : 60 },
   visible: {
-    opacity: 1,
     y: 0,
     transition: { duration: isMobile ? 0.4 : 0.6 },
   },
 };
 
 const fadeLeft = {
-  hidden: { opacity: 0, x: isMobile ? -20 : -60 },
+  hidden: { x: isMobile ? -20 : -60 },
   visible: {
-    opacity: 1,
     x: 0,
     transition: { duration: isMobile ? 0.4 : 0.6, delay: 0.12 },
   },
 };
 
 const fadeRight = {
-  hidden: { opacity: 0, x: isMobile ? 20 : 60 },
+  hidden: { x: isMobile ? 20 : 60 },
   visible: {
-    opacity: 1,
     x: 0,
     transition: { duration: isMobile ? 0.4 : 0.6, delay: 0.12 },
   },

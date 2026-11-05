@@ -466,7 +466,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                           target section, so the next Tab continues from there */}
                       <li className="block text-[16px]">
                         <a
-                          href="#culture"
+                          href="/#culture"
                           onClick={(e) => handleSectionClick(e, 'culture')}
                           className="hover:text-gray-300 text-[16px] transition-colors"
                         >
@@ -483,7 +483,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       </div> */}
                       <li className="block text-[16px]">
                         <a
-                          href="#services"
+                          href="/#services"
                           onClick={(e) => handleSectionClick(e, 'services')}
                           className="hover:text-gray-300 text-[16px] transition-colors"
                         >
@@ -492,7 +492,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       </li>
                       <li className="block text-[16px]">
                         <a
-                          href="#stories"
+                          href="/#stories"
                           onClick={(e) => { e.preventDefault(); scrollToNews(); }}
                           className="hover:text-gray-300 text-[16px] transition-colors"
                         >
@@ -521,7 +521,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       </li>
                       <li className="hover:text-gray-300 text-[16px] transition-colors">
                         <a
-                          href="#client"
+                          href="/#client"
                           onClick={(e) => handleSectionClick(e, 'client')}
                           className="block hover:text-gray-300 text-[16px] transition-colors cursor-pointer"
                         >
@@ -589,7 +589,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                     </li>
                     <li className="block text-[13px]">
                       <a
-                        href="#culture"
+                        href="/#culture"
                         onClick={(e) => handleSectionClick(e, 'culture')}
                         className="hover:text-gray-300 text-[13px] ml-[-12px] transition-colors"
                       >
@@ -606,7 +606,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                       </div> */}
                     <li className="block text-[13px]">
                       <a
-                        href="#services"
+                        href="/#services"
                         onClick={(e) => handleSectionClick(e, 'services')}
                         className="hover:text-gray-300 text-[13px] transition-colors"
                       >
@@ -615,7 +615,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                     </li>
                     <li className="block text-[13px]">
                       <a
-                        href="#stories"
+                        href="/#stories"
                         onClick={(e) => handleSectionClick(e, 'stories')}
                         className="hover:text-gray-300 ml-[-10px] text-[13px] transition-colors"
                       >
@@ -640,7 +640,7 @@ const Footer = ({forceModalOpen = false, onModalClose}: HomePageProps) => {
                     </li>
                     <li className="block text-[13px]">
                       <a
-                        href="#client"
+                        href="/#client"
                         onClick={(e) => handleSectionClick(e, 'client')}
                         className="block hover:text-gray-300 text-[13px] mx-auto w-fit transition-colors cursor-pointer"
                       >

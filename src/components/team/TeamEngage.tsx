@@ -60,7 +60,7 @@ const TeamEngage = () => {
                 </span>
               </p>
               <button 
-                className="new-btn-design-full mt-6 md:min-w-[230px]" 
+                className="new-btn-design-full mt-6 font-roboto md:min-w-[230px] min-h-[50px]"
                onClick={handleFindOpportunities}
               >
                 Find Opportunities

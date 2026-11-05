@@ -115,7 +115,7 @@ const TeamBanner = () => {
 
           <div className="button-area-main">
             <button
-              className="new-btn-design-full min-w-[169px] mt-[40px] bg-[#00855D]"
+              className="new-btn-design-full mt-[40px] font-roboto min-w-[169px] min-h-[50px]"
               onClick={() => scrollToSection('OurTeam')}
             >
               Meet the Team
